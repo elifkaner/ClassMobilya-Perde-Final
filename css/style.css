@@ -1,0 +1,236 @@
+
+/* CSS Variables for Colors */
+:root {
+    /* Light mode colors */
+    --primary-bg: #F5F5DC; /* Cream */
+    --secondary-bg: #FFFFFF; /* White for cards/sections */
+    --text-color: #36454F; /* Anthracite */
+    --accent-color: #A0522D; /* Sienna (wood tone) */
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --border-color: #E0E0E0;
+
+    /* Dark mode colors */
+    --dark-primary-bg: #2C2C2C; /* Dark Anthracite */
+    --dark-secondary-bg: #3C3C3C; /* Slightly lighter dark for cards/sections */
+    --dark-text-color: #F5F5DC; /* Cream for text */
+    --dark-accent-color: #D2B48C; /* Tan (lighter wood tone) */
+    --dark-shadow-color: rgba(0, 0, 0, 0.3);
+    --dark-border-color: #4C4C4C;
+}
+
+/* Dark mode toggle */
+body.dark-mode {
+    --primary-bg: var(--dark-primary-bg);
+    --secondary-bg: var(--dark-secondary-bg);
+    --text-color: var(--dark-text-color);
+    --accent-color: var(--dark-accent-color);
+    --shadow-color: var(--dark-shadow-color);
+    --border-color: var(--dark-border-color);
+}
+
+/* Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--primary-bg);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Header */
+header {
+    background-color: var(--secondary-bg);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+header h1 {
+    color: var(--accent-color);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--accent-color);
+}
+
+/* Main Content */
+main {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+section {
+    background-color: var(--secondary-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+/* Products Section (Example - will be enhanced with Grid) */
+.products-grid { /* Placeholder for product grid */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 1.5rem;
+    background-color: var(--secondary-bg);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.product-card { /* Placeholder for product card */
+    background-color: var(--secondary-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px var(--shadow-color);
+    padding: 1rem;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px var(--shadow-color);
+}
+
+.product-card h3 {
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+}
+
+.product-card p {
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
+
+/* Aside */
+aside {
+    background-color: var(--secondary-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+aside ul {
+    list-style: none;
+}
+
+aside ul li {
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+/* Footer */
+footer {
+    background-color: var(--secondary-bg);
+    color: var(--text-color);
+    text-align: center;
+    padding: 1rem;
+    box-shadow: 0 -2px 4px var(--shadow-color);
+}
+
+/* Responsive Design */
+
+/* Mobile (<= 768px) */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        margin-top: 1rem;
+    }
+
+    nav ul li a {
+        padding: 0.5rem;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    nav ul li:last-child a {
+        border-bottom: none;
+    }
+
+    main {
+        flex-direction: column;
+    }
+
+    .products-grid {
+        grid-template-columns: 1fr; /* Single column for mobile */
+    }
+}
+
+/* Tablet (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    header {
+        padding: 1rem 1.5rem;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    main {
+        padding: 1.5rem;
+        flex-direction: row; /* Example: maybe two columns, adjust as needed */
+        flex-wrap: wrap;
+    }
+
+    section, aside {
+        flex: 1 1 45%; /* Example: two columns */
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 2 or 3 columns */
+    }
+}
+
+/* Desktop (> 1024px) */
+@media (min-width: 1025px) {
+    header {
+        padding: 1rem 4rem;
+    }
+
+    main {
+        padding: 2rem 4rem;
+        flex-direction: row; /* Typical desktop layout */
+        justify-content: space-between;
+    }
+
+    section {
+        flex: 3; /* Main content takes more space */
+    }
+
+    aside {
+        flex: 1; /* Sidebar takes less space */
+        margin-left: 2rem;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 3 or 4 columns */
+    }
+}
