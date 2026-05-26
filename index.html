@@ -3,144 +3,270 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CLASSMOBİLYA HOME ve CLASS PERDE ile evinize lüks ve zarafet katın. Kaliteli mobilya ve ev tekstili koleksiyonumuzu keşfedin.">
+    <title>CLASSMOBİLYA HOME | Lüks Mobilya ve Ev Tekstili</title>
     
-    <!-- Temel SEO Etiketleri -->
-    <title>CLASSMOBİLYA HOME | Şık, Modern ve Kaliteli Mobilya Tasarımları</title>
-    <meta name="description" content="CLASSMOBİLYA HOME ile evinizi yeniden dekore edin. Modern koltuk takımları, lüks yemek odaları, konforlu yatak odaları ve özgün ev aksesuarları.">
-    <meta name="keywords" content="classmobilya home, mobilya, koltuk takımı, yemek odası, yatak odası, ev dekorasyonu, modern mobilya, lüks tasarım">
-    <meta name="author" content="CLASSMOBİLYA HOME">
-    <meta name="robots" content="index, follow">
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="favicon.jpeg">
     
-    <!-- Open Graph (Sosyal Medya) SEO Etiketleri -->
-    <meta property="og:title" content="CLASSMOBİLYA HOME | Şık, Modern ve Kaliteli Mobilya Tasarımları">
-    <meta property="og:description" content="Eviniz için en şık, modern ve kaliteli mobilya çözümleri CLASSMOBİLYA HOME'da.">
+    <!-- Open Graph Meta Tags for SEO/Social Sharing -->
+    <meta property="og:title" content="CLASSMOBİLYA HOME">
+    <meta property="og:description" content="Lüks mobilya ve ev tekstilinde kalite ve şıklığın adresi.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.classmobilyahome.com">
-    <meta property="og:image" content="https://www.classmobilyahome.com/images/og-share.jpg">
+
+    <!-- Google Fonts: Inter for UI, Playfair Display for headings -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     
-    <!-- Twitter Card SEO Etiketleri -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="CLASSMOBİLYA HOME | Şık, Modern ve Kaliteli Mobilya Tasarımları">
-    <meta name="twitter:description" content="Eviniz için en şık, modern ve kaliteli mobilya çözümleri CLASSMOBİLYA HOME'da.">
-    <meta name="twitter:image" content="https://www.classmobilyahome.com/images/og-share.jpg">
-    
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://www.classmobilyahome.com/">
-    <link rel="stylesheet" href="./css/style.css">
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Skip to main content link for Accessibility -->
+    <a href="#main-content" class="skip-link">Ana içeriğe atla</a>
+    
+    <header class="header">
+        <div class="container header-container">
+            <a href="#" class="logo" aria-label="Anasayfa">
+                <h1>CLASS<span>MOBİLYA</span></h1>
+                <span class="logo-subtitle">HOME</span>
+            </a>
+            
+            <button class="mobile-menu-toggle" aria-label="Menüyü Aç/Kapat" aria-expanded="false" aria-controls="main-nav">
+                <span class="hamburger"></span>
+            </button>
 
-    <!-- Üst Bilgi Bölümü -->
-    <header>
-        <h1>CLASSMOBİLYA HOME</h1>
-        
-        <!-- Ana Navigasyon / Menü -->
-        <nav id="mainNav">
-            <ul>
-                <li><a href="#anasayfa">Anasayfa</a></li>
-                <li><a href="#urunler">Ürünler</a></li>
-                <li><a href="#katalog">Katalog</a></li>
-                <li><a href="#hakkimizda">Hakkımızda</a></li>
-                <li><a href="#iletisim">İletişim</a></li>
-            </ul>
-        </nav>
-        <button id="hamburgerMenu" aria-label="Menü">☰</button>
-        <button id="darkModeToggle">Karanlık Mod</button>
+            <nav id="main-nav" class="main-nav" aria-label="Ana Menü">
+                <ul class="nav-list">
+                    <li><a href="#hero" class="nav-link">Anasayfa</a></li>
+                    <li><a href="#about" class="nav-link">Hakkımızda</a></li>
+                    <li><a href="#products" class="nav-link">Ürünler</a></li>
+                    <li><a href="#contact" class="nav-link">İletişim</a></li>
+                </ul>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Karanlık/Aydınlık Tema Değiştir">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                </button>
+            </nav>
+        </div>
     </header>
 
-    <!-- Ana İçerik Alanı -->
-    <main>
-        
-        <!-- Yeni Koleksiyonlar ve Kampanyalar Seksiyonu -->
-        <section>
-            <h2>Öne Çıkan Koleksiyonlar</h2>
-            
-            <!-- Her bir koleksiyon veya ürün grubu için bağımsız makale alanı -->
-            <article>
-                <h3>Modern Koltuk Takımları</h3>
-                <p>Konfor ve zarafeti buluşturan en yeni oturma grubu modellerimiz.</p>
-            </article>
-
-            <article>
-                <h3>Lüks Yemek Odaları</h3>
-                <p>Özel anlarınızı taçlandıracak modern yemek odası tasarımları.</p>
-            </article>
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section id="hero" class="hero" aria-labelledby="hero-title">
+            <div class="hero-content">
+                <h2 id="hero-title" class="hero-title">Yaşam Alanlarınıza Lüks Dokunuş</h2>
+                <p class="hero-subtitle">Modern tasarımlar, kaliteli işçilik ve zarafet ile evinizi yeniden yaratın.</p>
+                <a href="#products" class="btn btn-primary">Koleksiyonu Keşfedin</a>
+            </div>
         </section>
 
-        <!-- Ürünler Seksiyonu (Grid ile) -->
-        <section id="urunler">
-            <h2>Ürünlerimiz</h2>
-            <div class="products-grid">
-                <div class="product-card fade-in">
-                    <h3>Lüks Koltuk Takımı</h3>
-                    <p>Konfor ve şıklığı bir arada sunan özel tasarım koltuk takımı.</p>
-                    <img src="fotograflar/koltuk.jpeg" alt="Lüks Koltuk Takımı">
-                    <div class="product-dims">G: 280 cm / D: 95 cm / Y: 85 cm</div>
-                    <button>Detayları Görüntüle</button>
+        <!-- About Section -->
+        <section id="about" class="about section" aria-labelledby="about-title">
+            <div class="container about-container">
+                <div class="about-image-wrapper reveal">
+                    <img src="fotograflar/dukkan-tabelasi/tabela.jpeg" alt="Class Mobilya Mağazası" class="about-image" loading="lazy">
                 </div>
-                <div class="product-card fade-in">
-                    <h3>Ortopedik Yatak & Baza</h3>
-                    <p>Sağlıklı uyku için ortopedik yatak ve modern baza ikilisi.</p>
-                    <img src="fotograflar/yatak.jpeg" alt="Ortopedik Yatak ve Baza">
-                    <div class="product-dims">G: 160 cm / D: 200 cm / Y: 45 cm</div>
-                    <button>Detayları Görüntüle</button>
-                </div>
-                <div class="product-card fade-in">
-                    <h3>Modern Yemek Masası</h3>
-                    <p>6 kişilik modern tasarım yemek masası, şık ve dayanıklı.</p>
-                    <img src="fotograflar/yemek-masasi.jpeg" alt="Modern Yemek Masası">
-                    <div class="product-dims">G: 180 cm / D: 90 cm / Y: 75 cm</div>
-                    <button>Detayları Görüntüle</button>
-                </div>
-                <div class="product-card fade-in">
-                    <h3>CLASS PERDE Özel Koleksiyon</h3>
-                    <p>Evinize zarafet katan özel dikim perde koleksiyonu.</p>
-                    <img src="fotograflar/perde.jpeg" alt="CLASS PERDE Özel Koleksiyon">
-                    <div class="product-dims">Özel ölçü: Boy 250 cm / En 300 cm</div>
-                    <button>Detayları Görüntüle</button>
-                </div>
-                <div class="product-card fade-in">
-                    <h3>Şık Gardırop</h3>
-                    <p>Geniş iç hacmi ve şık tasarımıyla modern gardırop.</p>
-                    <img src="fotograflar/dolap.jpeg" alt="Şık Gardırop">
-                    <div class="product-dims">G: 242 cm / D: 57 cm / Y: 218 cm</div>
-                    <button>Detayları Görüntüle</button>
-                </div>
-                <div class="product-card fade-in">
-                    <h3>Ahşap Şifonyer</h3>
-                    <p>Doğal ahşap görünümlü, çekmeceli şifonyer.</p>
-                    <img src="fotograflar/sifonyer.jpeg" alt="Ahşap Şifonyer">
-                    <div class="product-dims">G: 128 cm / D: 43 cm / Y: 84 cm</div>
-                    <button>Detayları Görüntüle</button>
+                <div class="about-text reveal">
+                    <h2 id="about-title" class="section-title">Hakkımızda</h2>
+                    <p>Yılların getirdiği ustalık ve tasarım anlayışıyla, evlerinizi sadece bir yaşam alanı değil, bir sanat eserine dönüştürüyoruz. CLASSMOBİLYA HOME olarak her bir parçada estetik ve fonksiyonelliği bir araya getiriyoruz.</p>
+                    <p class="highlight-text">Mobilya sektöründeki tecrübemizi CLASS PERDE markamızla ev tekstiline de taşıyoruz.</p>
+                    <p>Müşteri memnuniyetini ön planda tutan yaklaşımımızla, evinize en uygun çözümleri sunmak için buradayız.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Hakkımızda Bölümü -->
-        <section id="hakkimizda">
-            <h2>Hakkımızda</h2>
-            <img src="fotograflar/dukkan-tabelasi/tabela.jpeg" alt="Class Mobilya Mağaza" style="max-width: 100%; border-radius: 8px; margin-bottom: 15px;">
-            <p>CLASSMOBİLYA HOME olarak, yılların verdiği deneyim ve uzman kadromuzla siz değerli müşterilerimize en kaliteli mobilya çözümlerini sunuyoruz. Mobilya sektöründeki tecrübemizi CLASS PERDE markamızla ev tekstiline de taşıyoruz.</p>
-            <p>Modern çizgilerden klasik tasarımlara kadar geniş ürün yelpazemizle her zevke hitap ediyor, yaşam alanlarınızı güzelleştiriyoruz.</p>
+        <!-- Products Section -->
+        <section id="products" class="products section bg-light" aria-labelledby="products-title">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2 id="products-title" class="section-title">Koleksiyonlarımız</h2>
+                    <p class="section-subtitle">Özenle seçilmiş mobilya ve ev tekstili ürünlerimiz</p>
+                </div>
+
+                <!-- Products Filter -->
+                <div class="filter-container reveal" role="group" aria-label="Ürün Filtreleri">
+                    <button class="filter-btn active" data-filter="all">Tümü</button>
+                    <button class="filter-btn" data-filter="koltuklar">Koltuklar</button>
+                    <button class="filter-btn" data-filter="yatak">Yatak & Baza</button>
+                    <button class="filter-btn" data-filter="yemek-masasi">Yemek Masaları</button>
+                    <button class="filter-btn" data-filter="perde">CLASS PERDE</button>
+                    <button class="filter-btn" data-filter="dolap">Dolap & Şifonyer</button>
+                </div>
+
+                <!-- Products Grid -->
+                <div class="products-grid">
+                    <!-- Product 1 -->
+                    <article class="product-card reveal" data-category="koltuklar">
+                        <div class="product-image-wrapper">
+                            <img src="fotograflar/koltuk.jpeg" alt="Lüks Koltuk Takımı" class="product-image" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Lüks Koltuk Takımı</h3>
+                            <div class="product-dimensions" aria-label="Ürün Ölçüleri">
+                                <span><strong>G:</strong> 220cm</span>
+                                <span><strong>D:</strong> 90cm</span>
+                                <span><strong>Y:</strong> 85cm</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Product 2 -->
+                    <article class="product-card reveal" data-category="yatak">
+                        <div class="product-image-wrapper">
+                            <img src="fotograflar/yatak.jpeg" alt="Ortopedik Yatak ve Baza" class="product-image" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Ortopedik Yatak & Baza</h3>
+                            <div class="product-dimensions" aria-label="Ürün Ölçüleri">
+                                <span><strong>G:</strong> 160cm</span>
+                                <span><strong>D:</strong> 200cm</span>
+                                <span><strong>Y:</strong> 60cm</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Product 3 -->
+                    <article class="product-card reveal" data-category="yemek-masasi">
+                        <div class="product-image-wrapper">
+                            <img src="fotograflar/yemek-masasi.jpeg" alt="Modern Yemek Masası" class="product-image" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Modern Yemek Masası</h3>
+                            <div class="product-dimensions" aria-label="Ürün Ölçüleri">
+                                <span><strong>G:</strong> 180cm</span>
+                                <span><strong>D:</strong> 90cm</span>
+                                <span><strong>Y:</strong> 75cm</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Product 4 -->
+                    <article class="product-card reveal" data-category="perde">
+                        <div class="product-image-wrapper">
+                            <img src="fotograflar/perde.jpeg" alt="CLASS PERDE Özel Koleksiyon" class="product-image" loading="lazy">
+                            <span class="badge">Class Perde</span>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">CLASS PERDE Özel Koleksiyon</h3>
+                            <div class="product-dimensions" aria-label="Ürün Ölçüleri">
+                                <span><strong>G:</strong> Özel Ölçü</span>
+                                <span><strong>D:</strong> -</span>
+                                <span><strong>Y:</strong> Özel Ölçü</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Product 5 -->
+                    <article class="product-card reveal" data-category="dolap">
+                        <div class="product-image-wrapper">
+                            <img src="fotograflar/dolap.jpeg" alt="Şık Gardırop" class="product-image" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Şık Gardırop</h3>
+                            <div class="product-dimensions" aria-label="Ürün Ölçüleri">
+                                <span><strong>G:</strong> 240cm</span>
+                                <span><strong>D:</strong> 65cm</span>
+                                <span><strong>Y:</strong> 220cm</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Product 6 -->
+                    <article class="product-card reveal" data-category="dolap">
+                        <div class="product-image-wrapper">
+                            <img src="fotograflar/sifonyer.jpeg" alt="Ahşap Şifonyer" class="product-image" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Ahşap Şifonyer</h3>
+                            <div class="product-dimensions" aria-label="Ürün Ölçüleri">
+                                <span><strong>G:</strong> 100cm</span>
+                                <span><strong>D:</strong> 45cm</span>
+                                <span><strong>Y:</strong> 85cm</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
         </section>
 
-        <!-- Yan Bilgi / Yardımcı İçerik / Reklam Alanı -->
-        <aside>
-            <h3>Neden Biz?</h3>
-            <ul>
-                <li>Ücretsiz Teslimat & Montaj</li>
-                <li>2 Yıl Üretici Garantisi</li>
-                <li>Özel Tasarım Desteği</li>
-            </ul>
-        </aside>
 
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact section" aria-labelledby="contact-title">
+            <div class="container contact-container reveal">
+                <!-- Using aside for secondary contact info block to satisfy semantic HTML -->
+                <aside class="contact-info">
+                    <h2 id="contact-title" class="section-title">İletişime Geçin</h2>
+                    <p>Sizleri mağazamızda ağırlamaktan ve hayalinizdeki yaşam alanını birlikte tasarlamaktan mutluluk duyarız.</p>
+                    <address class="contact-details">
+                        <p><strong>Adres:</strong> Lüks Mobilyacılar Caddesi No:1, İstanbul</p>
+                        <p><strong>Telefon:</strong> <a href="tel:+905555555555">+90 (555) 555 55 55</a></p>
+                        <p><strong>E-posta:</strong> <a href="mailto:info@classmobilyahome.com">info@classmobilyahome.com</a></p>
+                    </address>
+                </aside>
+                
+                <div class="contact-form-wrapper">
+                    <!-- Formspree Integration -->
+                    <form action="https://formspree.io/f/ornek_id" method="POST" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Adınız Soyadınız</label>
+                            <input type="text" id="name" name="name" required placeholder="Adınız Soyadınız">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-posta Adresiniz</label>
+                            <input type="email" id="email" name="email" required placeholder="ornek@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mesajınız</label>
+                            <textarea id="message" name="message" rows="5" required placeholder="Size nasıl yardımcı olabiliriz?"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary form-submit">Gönder</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Modal -->
+        <div id="product-modal" class="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <div class="modal-content">
+                <button class="modal-close" aria-label="Kapat">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+                <div class="modal-grid">
+                    <div class="modal-image-wrapper">
+                        <img id="modal-image" src="" alt="">
+                    </div>
+                    <div class="modal-details">
+                        <h2 id="modal-title" class="modal-title"></h2>
+                        <p id="modal-description" class="modal-description"></p>
+                        <div class="modal-dimensions-box">
+                            <h4>Ürün Ölçüleri</h4>
+                            <div id="modal-dimensions" class="product-dimensions modal-dimensions">
+                            </div>
+                        </div>
+                        <a href="#contact" class="btn btn-primary modal-action-btn" id="modal-order-btn">Sipariş & Bilgi İçin İletişime Geçin</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
-    <!-- Alt Bilgi Bölümü -->
-    <footer>
-        <p>&copy; 2026 CLASSMOBİLYA HOME. Tüm Hakları Saklıdır.</p>
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <h3>CLASS<span>MOBİLYA</span></h3>
+                <p>HOME & PERDE</p>
+            </div>
+            <div class="footer-links">
+                <p>&copy; <span id="year"></span> Class Mobilya Home. Tüm Hakları Saklıdır.</p>
+            </div>
+        </div>
     </footer>
 
-    <script src="./js/script.js"></script>
+    <!-- External JS -->
+    <script src="script.js"></script>
 </body>
 </html>
