@@ -35,6 +35,12 @@ body.dark-mode {
     padding: 0;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
@@ -125,6 +131,28 @@ section {
     color: var(--text-color);
 }
 
+.product-card .product-series {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.25rem;
+}
+
+.product-card .product-dims {
+    font-size: 0.8rem;
+    color: var(--text-color);
+    opacity: 0.8;
+    margin: 0.5rem 0;
+    line-height: 1.4;
+}
+
+.product-card img {
+    margin: 0.75rem auto;
+    border-radius: 4px;
+}
+
 /* Aside */
 aside {
     background-color: var(--secondary-bg);
@@ -151,13 +179,64 @@ footer {
     box-shadow: 0 -2px 4px var(--shadow-color);
 }
 
+/* Scroll Animation (fade-in) */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hamburger Menu Button */
+#hamburgerMenu {
+    display: none;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+}
+
 /* Responsive Design */
 
 /* Mobile (<= 768px) */
 @media (max-width: 768px) {
     header {
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #hamburgerMenu {
+        display: block;
+        order: -1;
+    }
+
+    #darkModeToggle {
+        order: 1;
+    }
+
+    header h1 {
+        order: 0;
+        flex: 1;
         text-align: center;
+        font-size: 1.1rem;
+    }
+
+    #mainNav {
+        order: 2;
+        flex-basis: 100%;
+        display: none;
+    }
+
+    #mainNav.nav-open {
+        display: block;
     }
 
     nav ul {
@@ -179,7 +258,7 @@ footer {
     }
 
     .products-grid {
-        grid-template-columns: 1fr; /* Single column for mobile */
+        grid-template-columns: 1fr;
     }
 }
 

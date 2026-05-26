@@ -35,7 +35,7 @@
         <h1>CLASSMOBİLYA HOME</h1>
         
         <!-- Ana Navigasyon / Menü -->
-        <nav>
+        <nav id="mainNav">
             <ul>
                 <li><a href="#anasayfa">Anasayfa</a></li>
                 <li><a href="#urunler">Ürünler</a></li>
@@ -44,6 +44,7 @@
                 <li><a href="#iletisim">İletişim</a></li>
             </ul>
         </nav>
+        <button id="hamburgerMenu" aria-label="Menü">☰</button>
         <button id="darkModeToggle">Karanlık Mod</button>
     </header>
 
@@ -70,31 +71,57 @@
         <section id="urunler">
             <h2>Ürünlerimiz</h2>
             <div class="products-grid">
-                <div class="product-card">
-                    <h3>Zümrüt Koltuk Takımı</h3>
-                    <p>Modern tasarımı ve üstün konforu bir arada sunar.</p>
-                    <img src="https://via.placeholder.com/300x200?text=Koltuk+Takimi" alt="Zümrüt Koltuk Takımı">
+                <div class="product-card fade-in">
+                    <h3>Lüks Koltuk Takımı</h3>
+                    <p>Konfor ve şıklığı bir arada sunan özel tasarım koltuk takımı.</p>
+                    <img src="fotograflar/koltuk.jpeg" alt="Lüks Koltuk Takımı">
+                    <div class="product-dims">G: 280 cm / D: 95 cm / Y: 85 cm</div>
                     <button>Detayları Görüntüle</button>
                 </div>
-                <div class="product-card">
-                    <h3>Safir Yemek Odası</h3>
-                    <p>Özel anlarınız için şık ve fonksiyonel bir seçenek.</p>
-                    <img src="https://via.placeholder.com/300x200?text=Yemek+Odasi" alt="Safir Yemek Odası">
+                <div class="product-card fade-in">
+                    <h3>Ortopedik Yatak & Baza</h3>
+                    <p>Sağlıklı uyku için ortopedik yatak ve modern baza ikilisi.</p>
+                    <img src="fotograflar/yatak.jpeg" alt="Ortopedik Yatak ve Baza">
+                    <div class="product-dims">G: 160 cm / D: 200 cm / Y: 45 cm</div>
                     <button>Detayları Görüntüle</button>
                 </div>
-                <div class="product-card">
-                    <h3>Yakut Yatak Odası</h3>
-                    <p>Rahatlık ve zarafeti yatak odanıza taşıyın.</p>
-                    <img src="https://via.placeholder.com/300x200?text=Yatak+Odasi" alt="Yakut Yatak Odası">
+                <div class="product-card fade-in">
+                    <h3>Modern Yemek Masası</h3>
+                    <p>6 kişilik modern tasarım yemek masası, şık ve dayanıklı.</p>
+                    <img src="fotograflar/yemek-masasi.jpeg" alt="Modern Yemek Masası">
+                    <div class="product-dims">G: 180 cm / D: 90 cm / Y: 75 cm</div>
                     <button>Detayları Görüntüle</button>
                 </div>
-                <div class="product-card">
-                    <h3>Elmas Konsol</h3>
-                    <p>Evinize ışıltı katacak modern konsol tasarımları.</p>
-                    <img src="https://via.placeholder.com/300x200?text=Konsol" alt="Elmas Konsol">
+                <div class="product-card fade-in">
+                    <h3>CLASS PERDE Özel Koleksiyon</h3>
+                    <p>Evinize zarafet katan özel dikim perde koleksiyonu.</p>
+                    <img src="fotograflar/perde.jpeg" alt="CLASS PERDE Özel Koleksiyon">
+                    <div class="product-dims">Özel ölçü: Boy 250 cm / En 300 cm</div>
+                    <button>Detayları Görüntüle</button>
+                </div>
+                <div class="product-card fade-in">
+                    <h3>Şık Gardırop</h3>
+                    <p>Geniş iç hacmi ve şık tasarımıyla modern gardırop.</p>
+                    <img src="fotograflar/dolap.jpeg" alt="Şık Gardırop">
+                    <div class="product-dims">G: 242 cm / D: 57 cm / Y: 218 cm</div>
+                    <button>Detayları Görüntüle</button>
+                </div>
+                <div class="product-card fade-in">
+                    <h3>Ahşap Şifonyer</h3>
+                    <p>Doğal ahşap görünümlü, çekmeceli şifonyer.</p>
+                    <img src="fotograflar/sifonyer.jpeg" alt="Ahşap Şifonyer">
+                    <div class="product-dims">G: 128 cm / D: 43 cm / Y: 84 cm</div>
                     <button>Detayları Görüntüle</button>
                 </div>
             </div>
+        </section>
+
+        <!-- Hakkımızda Bölümü -->
+        <section id="hakkimizda">
+            <h2>Hakkımızda</h2>
+            <img src="fotograflar/dukkan-tabelasi/tabela.jpeg" alt="Class Mobilya Mağaza" style="max-width: 100%; border-radius: 8px; margin-bottom: 15px;">
+            <p>CLASSMOBİLYA HOME olarak, yılların verdiği deneyim ve uzman kadromuzla siz değerli müşterilerimize en kaliteli mobilya çözümlerini sunuyoruz. Mobilya sektöründeki tecrübemizi CLASS PERDE markamızla ev tekstiline de taşıyoruz.</p>
+            <p>Modern çizgilerden klasik tasarımlara kadar geniş ürün yelpazemizle her zevke hitap ediyor, yaşam alanlarınızı güzelleştiriyoruz.</p>
         </section>
 
         <!-- Yan Bilgi / Yardımcı İçerik / Reklam Alanı -->
