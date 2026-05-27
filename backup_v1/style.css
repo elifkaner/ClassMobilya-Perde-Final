@@ -3,63 +3,46 @@
    ========================================= */
 :root {
     /* Renk Paleti - Aydınlık Tema */
-    --renk-ana-koyu: #0a0a0a;
-    --renk-ikincil-altin: #d4af37; /* Daha Parlak, Özgün Altın */
-    --renk-arkaplan: #faf9f6; /* Kırık Beyaz (Off-white) */
-    --renk-arkaplan-alt: #f0ede6;
+    --renk-ana-koyu: #111111;
+    --renk-ikincil-altin: #c5a880; /* Zarif Altın */
+    --renk-arkaplan: #fdfbf7; /* Sıcak Beyaz */
+    --renk-arkaplan-alt: #f4f0e6;
     --renk-kart-arkaplan: #ffffff;
-    --renk-metin: #222222;
-    --renk-metin-soluk: #777777;
-    --renk-kenarlik: #e8e5dc;
-    --renk-girdi-arkaplan: #f5f3f0;
-    --renk-footer: #0a0a0a;
-    --renk-acik-altin: rgba(212, 175, 55, 0.08);
+    --renk-metin: #333333;
+    --renk-metin-soluk: #666666;
+    --renk-kenarlik: #e2e0da;
+    --renk-girdi-arkaplan: #f9f8f6;
+    --renk-footer: #111111;
+    --renk-acik-altin: rgba(197, 168, 128, 0.1);
     
     /* Tipografi */
     --font-ana: 'Inter', sans-serif;
     --font-baslik: 'Playfair Display', serif;
     
     /* Animasyon Geçişleri */
-    --gecis-hizli: 0.25s ease-in-out;
-    --gecis-normal: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-    --gecis-yavas: 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --gecis-hizli: 0.2s ease;
+    --gecis-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --gecis-yavas: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Karanlık Tema Renk Paleti */
 [data-theme="dark"] {
     --renk-ana-koyu: #ffffff;
-    --renk-ikincil-altin: #e6c25a; 
-    --renk-arkaplan: #0d0d0d;
-    --renk-arkaplan-alt: #141414;
-    --renk-kart-arkaplan: #1a1a1a;
-    --renk-metin: #e6e6e6;
-    --renk-metin-soluk: #999999;
-    --renk-kenarlik: #2a2a2a;
-    --renk-girdi-arkaplan: #141414;
+    --renk-ikincil-altin: #d4b895; /* Karanlık tema için daha parlak altın */
+    --renk-arkaplan: #121212;
+    --renk-arkaplan-alt: #1a1a1a;
+    --renk-kart-arkaplan: #222222;
+    --renk-metin: #e0e0e0;
+    --renk-metin-soluk: #a0a0a0;
+    --renk-kenarlik: #333333;
+    --renk-girdi-arkaplan: #1e1e1e;
     --renk-footer: #050505;
-    --renk-acik-altin: rgba(230, 194, 90, 0.08);
-}
-
-/* =========================================
-   Özgün Custom Scrollbar
-   ========================================= */
-::-webkit-scrollbar {
-    width: 8px;
-}
-::-webkit-scrollbar-track {
-    background: var(--renk-arkaplan);
-}
-::-webkit-scrollbar-thumb {
-    background: var(--renk-ikincil-altin);
-    border-radius: 10px;
-}
-::-webkit-scrollbar-thumb:hover {
-    background: var(--renk-ana-koyu);
+    --renk-acik-altin: rgba(212, 184, 149, 0.1);
 }
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 90px;
+    scroll-padding-top: 80px; /* Sabit header için kaydırma boşluğu */
 }
 
 body {
@@ -83,38 +66,6 @@ body {
 
 .text-secondary-gold {
     color: var(--renk-ikincil-altin) !important;
-}
-
-.text-gradient {
-    background: linear-gradient(120deg, var(--renk-ikincil-altin), #f3e5ab);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-[data-theme="dark"] .text-gradient {
-    background: linear-gradient(120deg, var(--renk-ikincil-altin), #fff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-/* Animasyonlu Alt Çizgi (Divider) */
-.animated-line {
-    width: 0;
-    height: 3px;
-    background: var(--renk-ikincil-altin);
-    transition: width 1s cubic-bezier(0.25, 0.8, 0.25, 1);
-    margin: 1.5rem auto;
-    border-radius: 2px;
-}
-.reveal.active .animated-line {
-    width: 80px;
-}
-
-/* Özgün Şekiller (Asymmetric) */
-.shape-asymmetric {
-    border-radius: 60px 0 60px 0 !important;
-}
-.shape-asymmetric-alt {
-    border-radius: 0 40px 0 40px !important;
 }
 
 .bg-light-gold {
@@ -141,7 +92,7 @@ body {
 .bg-input:focus {
     background-color: var(--renk-kart-arkaplan) !important;
     border-color: var(--renk-ikincil-altin) !important;
-    box-shadow: 0 0 0 0.25rem rgba(212, 175, 55, 0.25) !important;
+    box-shadow: 0 0 0 0.25rem rgba(197, 168, 128, 0.25) !important;
 }
 
 .border-secondary-gold {
@@ -149,15 +100,15 @@ body {
 }
 
 .tracking-widest {
-    letter-spacing: 0.25em;
+    letter-spacing: 0.2em;
 }
 
 .tracking-wider {
-    letter-spacing: 0.15em;
+    letter-spacing: 0.1em;
 }
 
 .text-shadow-lg {
-    text-shadow: 0 15px 30px rgba(0,0,0,0.7);
+    text-shadow: 0 10px 20px rgba(0,0,0,0.5);
 }
 
 .fs-7 {
@@ -165,8 +116,8 @@ body {
 }
 
 .py-6 {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
 }
 
 .cursor-pointer {
@@ -196,20 +147,19 @@ body {
 }
 
 .header.scrolled {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
     background-color: var(--renk-arkaplan);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 [data-theme="dark"] .header.scrolled {
     background-color: var(--renk-arkaplan);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
 }
 
 .navbar-brand h1 {
-    font-size: 1.6rem;
-    letter-spacing: 3px;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
     font-weight: 700;
     color: var(--renk-ana-koyu);
 }
@@ -230,25 +180,24 @@ body {
 .nav-link::after {
     content: '';
     position: absolute;
-    bottom: -5px;
+    bottom: 0;
     left: 50%;
     transform: translateX(-50%);
     width: 0;
     height: 2px;
     background-color: var(--renk-ikincil-altin);
     transition: width var(--gecis-normal);
-    border: none !important;
 }
 
 .nav-link:hover, .nav-link:focus, .nav-link.active {
     color: var(--renk-ikincil-altin) !important;
 }
 
-.nav-link:hover::after, .nav-link:focus::after {
-    width: 100%;
+.nav-link:hover::after, .nav-link:focus::after, .nav-link.active::after {
+    width: 80%;
 }
 
-/* Dropdown Hover Özelliği */
+/* Dropdown Hover Özelliği (Büyük Ekranlar İçin) */
 @media (min-width: 992px) {
     .dropdown-hover:hover > .dropdown-menu {
         display: block;
@@ -267,15 +216,29 @@ body {
     color: var(--renk-ikincil-altin);
     background-color: var(--renk-acik-altin);
     border-color: var(--renk-ikincil-altin);
-    transform: scale(1.05);
 }
 
 .moon-icon { display: none; }
 [data-theme="dark"] .sun-icon { display: none; }
 [data-theme="dark"] .moon-icon { display: block; }
 
+/* Hamburger Menu Toggler */
+.custom-toggler {
+    border: none;
+    padding: 0.25rem 0.5rem;
+}
+.custom-toggler:focus {
+    box-shadow: none;
+}
+.custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+[data-theme="dark"] .custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
 /* =========================================
-   Butonlar (Buttons) & Glow Effects
+   Butonlar (Buttons)
    ========================================= */
 .btn-premium {
     background-color: var(--renk-ana-koyu);
@@ -283,32 +246,15 @@ body {
     border: 1px solid var(--renk-ana-koyu);
     transition: all var(--gecis-normal);
     font-weight: 500;
-    letter-spacing: 2px;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-}
-
-.btn-premium::before {
-    content: '';
-    position: absolute;
-    top: 0; left: -100%;
-    width: 100%; height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-    transition: left 0.5s ease;
-    z-index: -1;
-}
-
-.btn-premium:hover::before {
-    left: 100%;
+    letter-spacing: 1px;
 }
 
 .btn-premium:hover, .btn-premium:focus {
     background-color: var(--renk-ikincil-altin);
     border-color: var(--renk-ikincil-altin);
     color: #fff;
-    transform: translateY(-3px);
-    box-shadow: 0 15px 30px rgba(212, 175, 55, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(197, 168, 128, 0.3);
 }
 
 [data-theme="dark"] .btn-premium {
@@ -321,70 +267,76 @@ body {
     background-color: #fff;
     border-color: #fff;
     color: #121212;
-    box-shadow: 0 15px 30px rgba(255, 255, 255, 0.2);
 }
 
 .link-hover:hover {
     color: var(--renk-ikincil-altin) !important;
 }
 
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--renk-ikincil-altin);
+    color: #fff;
+    padding: 8px 16px;
+    z-index: 1050;
+    transition: top var(--gecis-hizli);
+}
+.skip-link:focus {
+    top: 0;
+    outline: 2px solid var(--renk-ana-koyu);
+}
+
 /* =========================================
-   Hero Bölümü (Parallax & Vignette)
+   Hero Bölümü
    ========================================= */
 .hero {
     min-height: 100vh;
     padding-top: 80px;
 }
 .hero-bg {
-    background: linear-gradient(135deg, rgba(10,10,10,0.7) 0%, rgba(20,20,20,0.95) 100%), url('../fotograflar/koltuk.jpeg') center/cover fixed no-repeat;
-    background-blend-mode: multiply;
+    background: linear-gradient(135deg, rgba(20,20,20,0.85) 0%, rgba(40,40,40,0.95) 100%), url('fotograflar/koltuk.jpeg') center/cover no-repeat;
+    background-blend-mode: overlay;
 }
 [data-theme="dark"] .hero-bg {
-    background: linear-gradient(135deg, rgba(0,0,0,0.85) 0%, rgba(10,10,10,1) 100%), url('../fotograflar/koltuk.jpeg') center/cover fixed no-repeat;
-    background-blend-mode: multiply;
+    background: linear-gradient(135deg, rgba(10,10,10,0.95) 0%, rgba(20,20,20,1) 100%), url('fotograflar/koltuk.jpeg') center/cover no-repeat;
+    background-blend-mode: overlay;
 }
 
 .hero-content {
-    animation: slideUpFade 1.2s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+    animation: fadeInUp 1s ease forwards;
     opacity: 0;
-    transform: translateY(50px);
+    transform: translateY(30px);
 }
 
 /* =========================================
    Hakkımızda & Resim Efektleri
    ========================================= */
-.premium-border {
-    position: relative;
-    z-index: 1;
-}
 .premium-border::before {
     content: '';
     position: absolute;
-    top: 25px; left: -25px; right: 25px; bottom: -25px;
-    border: 3px solid var(--renk-ikincil-altin);
-    border-radius: 60px 0 60px 0;
+    top: 15px; left: 15px; right: -15px; bottom: -15px;
+    border: 2px solid var(--renk-ikincil-altin);
+    border-radius: inherit;
     z-index: -1;
-    transition: transform var(--gecis-yavas), border-color var(--gecis-yavas);
+    transition: transform var(--gecis-yavas);
 }
 
 .image-wrapper:hover.premium-border::before {
-    transform: translate(15px, -15px);
-    border-color: var(--renk-ana-koyu);
-}
-[data-theme="dark"] .image-wrapper:hover.premium-border::before {
-    border-color: #fff;
+    transform: translate(-10px, -10px);
 }
 
 .image-wrapper img {
-    transition: transform 1s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: transform 0.8s ease;
 }
 
 .image-wrapper:hover img {
-    transform: scale(1.08) rotate(1deg);
+    transform: scale(1.05);
 }
 
 /* =========================================
-   Kategori/Ürün Kartları (Hover Float)
+   Ürünler (Products Filter & Grid)
    ========================================= */
 .filter-btn {
     border: 1px solid var(--renk-kenarlik);
@@ -403,45 +355,41 @@ body {
     color: #121212;
 }
 
-.hover-float {
-    transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.5s ease;
+.hover-elevate {
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
 }
 
-.hover-float:hover {
-    transform: translateY(-15px);
-    box-shadow: 0 30px 60px rgba(0,0,0,0.12) !important;
+.hover-elevate:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1) !important;
 }
 
-[data-theme="dark"] .hover-float:hover {
-    box-shadow: 0 30px 60px rgba(0,0,0,0.6) !important;
+[data-theme="dark"] .hover-elevate:hover {
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5) !important;
 }
 
 .card-img-wrapper img {
-    transition: transform 1s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: transform 0.8s ease;
 }
 
-.hover-float:hover .card-img-wrapper img {
-    transform: scale(1.1);
+.hover-elevate:hover .card-img-wrapper img {
+    transform: scale(1.08);
 }
 
 /* =========================================
    Animasyonlar
    ========================================= */
-@keyframes slideUpFade {
-    0% {
-        opacity: 0;
-        transform: translateY(50px) scale(0.98);
-    }
-    100% {
+@keyframes fadeInUp {
+    to {
         opacity: 1;
-        transform: translateY(0) scale(1);
+        transform: translateY(0);
     }
 }
 
 @keyframes fadeScaleIn {
     from {
         opacity: 0;
-        transform: translateY(-15px) scale(0.95);
+        transform: translateY(-10px) scale(0.95);
     }
     to {
         opacity: 1;
@@ -451,13 +399,21 @@ body {
 
 .reveal {
     opacity: 0;
-    transform: translateY(50px) scale(0.95);
-    transition: opacity 0.8s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .reveal.active {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateY(0);
+}
+
+.product-item {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.product-item.hidden-item {
+    display: none !important;
 }
 
 /* Fullscreen Modal Özelleştirmeleri */
@@ -471,6 +427,6 @@ body {
 }
 .btn-close-custom:hover {
     opacity: 1;
-    transform: rotate(180deg) scale(1.1);
+    transform: rotate(90deg);
     background-color: var(--renk-ikincil-altin);
 }

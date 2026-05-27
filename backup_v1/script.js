@@ -86,13 +86,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if(!urunIzgarasi) return; // Ana sayfada çalışmaz, sadece urunler.html'de çalışır
         urunIzgarasi.innerHTML = ''; // Temizle
         
-        urunler.forEach((urun, indeks) => {
-            // Asimetrik şekiller sırayla değişsin
-            const asimetrikClass = (indeks % 2 === 0) ? 'shape-asymmetric' : 'shape-asymmetric-alt';
-            
+        urunler.forEach((urun) => {
             const urunHTML = `
                 <div class="col-md-6 col-lg-4 product-item reveal active" data-category="${urun.kategori}">
-                    <article class="card h-100 border-0 shadow-sm hover-float product-card cursor-pointer bg-card ${asimetrikClass}" 
+                    <article class="card h-100 border-0 shadow-sm hover-elevate product-card cursor-pointer bg-card" 
                         data-baslik-tr="${urun.baslikTR}" 
                         data-baslik-en="${urun.baslikEN}" 
                         data-aciklama-tr="${urun.aciklamaTR}" 
