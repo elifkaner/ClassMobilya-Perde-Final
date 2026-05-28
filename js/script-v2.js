@@ -1,4 +1,107 @@
 document.addEventListener('DOMContentLoaded', () => {
+    let secilenDil = localStorage.getItem('classmobilya-lang') || 'tr';
+
+    const dilSozlugu = {
+        "tr": {
+            "skip_link": "Ana içeriğe atla",
+            "nav_home": "Ana Sayfa",
+            "nav_about": "Hakkımızda",
+            "nav_products": "Ürünler",
+            "nav_contact": "İletişim",
+            "hero_title": "Yaşam Alanlarınıza Lüks Dokunuş",
+            "hero_subtitle": "Modern tasarımlar, kaliteli işçilik ve zarafet ile evinizi yeniden yaratın.",
+            "hero_btn": "Koleksiyonu Keşfedin",
+            "about_title": "Hakkımızda",
+            "about_p1": "Yılların getirdiği ustalık ve tasarım anlayışıyla, evlerinizi sadece bir yaşam alanı değil, bir sanat eserine dönüştürüyoruz. CLASSMOBİLYA HOME olarak her bir parçada estetik ve fonksiyonelliği bir araya getiriyoruz.",
+            "about_highlight": "Mobilya sektöründeki tecrübemizi CLASS PERDE markamızla ev tekstiline de taşıyoruz.",
+            "about_p2": "Müşteri memnuniyetini ön planda tutan yaklaşımımızla, evinize en uygun çözümleri sunmak için buradayız.",
+            "categories_title": "Kategorilerimiz",
+            "categories_subtitle": "Evinizin her köşesi için özel tasarımlar",
+            "products_title": "Koleksiyonlarımız",
+            "products_subtitle": "Özenle seçilmiş mobilya ve ev tekstili ürünlerimiz",
+            "filter_all": "Tüm Koleksiyon",
+            "filter_sofas": "Oturma Odası Grubu",
+            "filter_beds": "Yatak & Baza",
+            "filter_dining": "Yemek Masası Takımı",
+            "filter_curtains": "Perdeler",
+            "filter_cabinets": "Şifonyer & Dolap",
+            "badge_curtain": "CLASS PERDE",
+            "dim_w": "G:", "dim_d": "D:", "dim_h": "Y:", "dim_l": "U:",
+            "contact_title": "İletişime Geçin",
+            "contact_desc": "Sizleri mağazamızda ağırlamaktan ve hayalinizdeki yaşam alanını birlikte tasarlamaktan mutluluk duyarız.",
+            "contact_address": "Adres",
+            "contact_address_value": "Çamlıca Mahallesi, Tombakzade Bulvarı NO:72/A Eskişehir",
+            "contact_phone": "Telefon",
+            "contact_email": "E-posta",
+            "form_name_label": "Adınız Soyadınız",
+            "form_name_ph": "Adınız Soyadınız",
+            "form_email_label": "E-posta Adresiniz",
+            "form_email_ph": "ornek@email.com",
+            "form_msg_label": "Mesajınız",
+            "form_msg_ph": "Size nasıl yardımcı olabiliriz?",
+            "form_submit": "Gönder",
+            "modal_dimensions": "Ürün Detayları",
+            "modal_contact_btn": "Sipariş & Bilgi İçin İletişime Geçin",
+            "modal_close_btn": "Geri Dön",
+            "footer_rights": "Tüm Hakları Saklıdır.",
+            "price_all": "Kategorilerimizi inceleyin.",
+            "price_koltuklar": "35.000 TL'den başlayan fiyatlarla...",
+            "price_yemek_masasi": "8.000 TL'den başlayan fiyatlarla...",
+            "price_dolap": "11.000 TL'den başlayan fiyatlarla...",
+            "price_perde": "Ölçüye göre fiyatlandırılmaktadır.",
+            "price_yatak": "İstenilen ölçünün çeşitlerine göre fiyatlandırılmaktadır."
+        },
+        "en": {
+            "skip_link": "Skip to main content",
+            "nav_home": "Home",
+            "nav_about": "About Us",
+            "nav_products": "Products",
+            "nav_contact": "Contact",
+            "hero_title": "A Touch of Luxury to Your Living Spaces",
+            "hero_subtitle": "Recreate your home with modern designs, quality craftsmanship, and elegance.",
+            "hero_btn": "Explore the Collection",
+            "about_title": "About Us",
+            "about_p1": "With years of mastery and design philosophy, we transform your homes not just into a living space, but into a work of art. At CLASSMOBİLYA HOME, we combine aesthetics and functionality in every piece.",
+            "about_highlight": "We bring our experience in the furniture sector to home textiles with our CLASS PERDE brand.",
+            "about_p2": "With our customer satisfaction-oriented approach, we are here to offer the most suitable solutions for your home.",
+            "categories_title": "Categories",
+            "categories_subtitle": "Special designs for every corner of your home",
+            "products_title": "Collections",
+            "products_subtitle": "Our carefully selected furniture and home textile products",
+            "filter_all": "All Collection",
+            "filter_sofas": "Living Room Sets",
+            "filter_beds": "Bed & Bases",
+            "filter_dining": "Dining Table Sets",
+            "filter_curtains": "Curtains",
+            "filter_cabinets": "Cabinets & Dressers",
+            "badge_curtain": "CLASS PERDE",
+            "dim_w": "W:", "dim_d": "D:", "dim_h": "H:", "dim_l": "L:",
+            "contact_title": "Get in Touch",
+            "contact_desc": "We would be happy to host you in our store and design your dream living space together.",
+            "contact_address": "Address",
+            "contact_address_value": "Çamlıca Mahallesi, Tombakzade Bulvarı NO:72/A Eskişehir",
+            "contact_phone": "Phone",
+            "contact_email": "Email",
+            "form_name_label": "Full Name",
+            "form_name_ph": "Your Full Name",
+            "form_email_label": "Email Address",
+            "form_email_ph": "example@email.com",
+            "form_msg_label": "Your Message",
+            "form_msg_ph": "How can we help you?",
+            "form_submit": "Send",
+            "modal_dimensions": "Product Details",
+            "modal_contact_btn": "Contact for Order & Info",
+            "modal_close_btn": "Go Back",
+            "footer_rights": "All Rights Reserved.",
+            "price_all": "Explore our categories.",
+            "price_koltuklar": "Prices starting from 35,000 TL...",
+            "price_yemek_masasi": "Prices starting from 8,000 TL...",
+            "price_dolap": "Prices starting from 11,000 TL...",
+            "price_perde": "Pricing varies by custom dimensions.",
+            "price_yatak": "Pricing varies by requested dimension types."
+        }
+    };
+
     /* =========================================
        1. Tema Ayarları (Karanlık / Aydınlık Mod)
        ========================================= */
@@ -48,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
        ========================================= */
     const urunIzgarasi = document.getElementById('urun-grid');
     const resimListesi = [
-        { dosya: 'oturma-odasi.jpeg', kategori: 'koltuklar', w: '240', d: '95', h: '85',
+        { dosya: 'oturma-odasi-4.jpeg', kategori: 'koltuklar', w: '240', d: '95', h: '85',
           baslikTR: 'Comfort Köşe Takımı', baslikEN: 'Comfort Corner Sofa',
           aciklamaTR: 'Extra ithal kuşak hareketli kumaş. Süngeri 36 dansite, iskeleti ve ayakları fırınlanmış gürgen ağacından oluşmaktadır. Ayak renkleri ve ölçüleri isteğe göre değişebilir.',
           aciklamaEN: 'Extra imported belt, dynamic fabric. 36 density sponge, frame and legs are made of baked hornbeam wood. Leg colors and dimensions can be customized.' },
@@ -68,7 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
           aciklamaTR: 'Sandıklı tasarım, yüksek ayaklı. Fırınlanmış gürgen ağacından üretilmiştir. Kumaş ve ayak renkleri isteğe göre değişebilir.',
           aciklamaEN: 'Design with storage, high legs. Made of baked hornbeam wood. Fabric and leg colors can be customized.' },
           
-        { dosya: 'oturma-odasi-4.jpeg', kategori: 'koltuklar', w: '260', d: '95', h: '85',
+        { dosya: 'oturma-odasi.jpeg', kategori: 'koltuklar', w: '260', d: '95', h: '85',
           baslikTR: 'Madrid Koltuk Takımı', baslikEN: 'Madrid Sofa Set',
           aciklamaTR: 'Yüksek ayaklı ve zarif görsel tasarım. Ayak ve kumaş renkleri değiştirilebilir.',
           aciklamaEN: 'Elegant visual design with high legs. Leg and fabric colors can be customized.' },
@@ -83,10 +186,10 @@ document.addEventListener('DOMContentLoaded', () => {
           aciklamaTR: '90x90 ekonomik masa modeli. Suntalem malzeme, zarif sandalye detaylı.',
           aciklamaEN: '90x90 economic round table model. Chipboard material, elegant chair details.' },
           
-        { dosya: 'yemek-masasi-2.jpeg', kategori: 'yemek-masasi', w: '200', d: '100', h: '76',
-          baslikTR: 'Küçük Yemek Masası', baslikEN: 'Small Dining Table',
-          aciklamaTR: 'Küçük aileler için ideal, leke tutmaz özel kumaş kaplı sandalyelere sahip zarif ve dayanıklı masa takımı.',
-          aciklamaEN: 'Ideal for small families, elegant and durable table set with stain-resistant custom fabric chairs.' },
+        { dosya: 'yemek-masasi-2.jpeg', kategori: 'yemek-masasi', w: '90', d: '90', h: '76',
+          baslikTR: 'Yuvarlak Yemek Masası', baslikEN: 'Round Dining Table',
+          aciklamaTR: 'Küçük aileler için ideal, leke tutmaz özel kumaş kaplı sandalyelere sahip zarif ve dayanıklı yuvarlak masa takımı.',
+          aciklamaEN: 'Ideal for small families, elegant and durable round table set with stain-resistant custom fabric chairs.' },
           
         { dosya: 'yemek-masasi-3.jpeg', kategori: 'yemek-masasi', w: '150', d: '85', h: '75',
           baslikTR: 'Ahşap Desenli Yemek Masası', baslikEN: 'Wood Patterned Dining Table',
@@ -123,27 +226,27 @@ document.addEventListener('DOMContentLoaded', () => {
           aciklamaTR: 'Mağazamızda her tarza ve bütçeye uygun yüzlerce farklı halı seçeneği sizleri bekliyor. Klasikten moderne tüm renk ve desenler mevcut.',
           aciklamaEN: 'Hundreds of different carpet options suitable for every style and budget are waiting for you in our store. All colors and patterns from classic to modern are available.' },
           
-        { dosya: 'hali1.jpeg', kategori: 'perde', w: '200', d: '-', h: '290', 
-          baslikTR: 'Özel Tasarım Halı', baslikEN: 'Custom Design Carpet', 
-          aciklamaTR: 'Odanıza ferahlık katacak, silinebilir ve leke tutmaz özel dokuma modern halı tasarımı. Antialerjik yapısıyla çocuklu aileler için idealdir.', 
-          aciklamaEN: 'Modern carpet design woven with easily wipeable and stain-resistant fabric, adding spaciousness to your room. Ideal for families with its anti-allergic structure.' },
+        { dosya: 'hali1.jpeg', kategori: 'perde', w: '-', d: '-', h: '-', 
+          baslikTR: 'Özel Tasarım Koridor Halısı', baslikEN: 'Custom Design Hallway Runner', 
+          aciklamaTR: 'Koridor ve antrelerinize şıklık katacak, silinebilir ve kaymaz tabanlı özel dokuma yolluk halı tasarımı. Antialerjik yapısıyla çocuklu aileler için idealdir. (Ölçüler koridorunuza göre özel kesim yapılmaktadır).', 
+          aciklamaEN: 'Custom woven runner carpet design with a non-slip base that will add elegance to your hallways. Ideal for families with its anti-allergic structure. (Dimensions are custom cut according to your hallway).' },
           
-        { dosya: 'dolap.jpeg', kategori: 'dolap', w: '200', d: '60', h: '210',
+        { dosya: 'dolap.jpeg', kategori: 'dolap', w: '135', d: '55', h: '210',
           baslikTR: 'Çok Amaçlı Dolap', baslikEN: 'Multi-Purpose Wardrobe',
           aciklamaTR: 'Geniş iç hacmi ve çok sayıda rafıyla eşyalarınızı düzenli tutmanızı sağlayan fonksiyonel dolap.',
           aciklamaEN: 'Functional wardrobe that allows you to keep your belongings organized with its large interior volume and numerous shelves.' },
           
-        { dosya: 'dolap1.jpeg', kategori: 'dolap', w: '160', d: '50', h: '50',
+        { dosya: 'dolap1.jpeg', kategori: 'dolap', w: '90', d: '35', h: '175',
           baslikTR: 'Çok Amaçlı Kitaplık ve Dolap', baslikEN: 'Multi-Purpose Bookshelf and Cabinet',
           aciklamaTR: 'Modern tasarımıyla hem kitaplık hem de kapalı depolama alanı olarak kullanabileceğiniz çok amaçlı dekoratif ünite.',
           aciklamaEN: 'Multi-purpose decorative unit that you can use both as a bookshelf and closed storage area with its modern design.' },
           
-        { dosya: 'dolap2.jpeg', kategori: 'dolap', w: '220', d: '65', h: '220',
+        { dosya: 'dolap2.jpeg', kategori: 'dolap', w: '90', d: '52', h: '195',
           baslikTR: 'İki Kapaklı Çekmeceli Dolap', baslikEN: 'Two-Door Cabinet with Drawers',
           aciklamaTR: 'Evinizin her köşesinde kullanabileceğiniz, çekmece ve dolap detaylarıyla pratik saklama alanı sunan dolap takımı.',
           aciklamaEN: 'Cabinet set that you can use in every corner of your home, offering practical storage space with drawer and cabinet details.' },
           
-        { dosya: 'dolap3.jpeg', kategori: 'dolap', w: '150', d: '50', h: '190',
+        { dosya: 'dolap3.jpeg', kategori: 'dolap', w: '180', d: '45', h: '55',
           baslikTR: 'Modern TV Ünitesi', baslikEN: 'Modern TV Unit',
           aciklamaTR: 'Özel dekoratif panelleri ve LED aydınlatma efektiyle salonunuza şıklık katan geniş TV ünitesi.',
           aciklamaEN: 'Wide TV unit that adds elegance to your living room with its custom decorative panels and LED lighting effect.' },
@@ -168,25 +271,25 @@ document.addEventListener('DOMContentLoaded', () => {
           aciklamaTR: 'Terletmeyen özel kumaş teknolojisi ve ekstra konfor katmanıyla kesintisiz uyku.',
           aciklamaEN: 'Uninterrupted sleep with non-sweating custom fabric technology and extra comfort layer.' },
           
-        { dosya: 'yatak4.jpeg', kategori: 'yatak', w: '200', d: '200', h: '125',
-          baslikTR: 'King Size Lüks Yatak', baslikEN: 'King Size Luxury Bed',
-          aciklamaTR: 'Ultra geniş uyku alanı sunan, lüks otel konforunu evinize getiren özel tasarım yatak.',
-          aciklamaEN: 'Custom-designed bed bringing luxury hotel comfort to your home, offering ultra-wide sleeping space.' },
+        { dosya: 'yatak4.jpeg', kategori: 'yatak', w: '90', d: '190', h: '110',
+          baslikTR: 'Lüks Tek Kişilik Baza Seti', baslikEN: 'Luxury Single Base Set',
+          aciklamaTR: 'Dar alanlar için ideal, lüks otel konforunu evinize getiren özel tasarım tek kişilik baza seti.',
+          aciklamaEN: 'Custom-designed single base set bringing luxury hotel comfort to your home, ideal for narrow spaces.' },
           
-        { dosya: 'yatak5.jpeg', kategori: 'yatak', w: '140', d: '190', h: '100',
-          baslikTR: 'Kompakt Baza Seti', baslikEN: 'Compact Base Set',
-          aciklamaTR: 'Dar alanlar için tasarlanmış geniş iç hacimli, amortisörlü güvenli baza sistemi.',
-          aciklamaEN: 'Spacious interior, safe shock-absorber base system designed for narrow spaces.' },
+        { dosya: 'yatak5.jpeg', kategori: 'yatak', w: '160', d: '200', h: '100',
+          baslikTR: 'Geniş Çift Kişilik Baza Seti', baslikEN: 'Spacious Double Base Set',
+          aciklamaTR: 'Geniş yatak odaları için ideal, ekstra depolama hacmi sunan amortisörlü güvenli baza sistemi.',
+          aciklamaEN: 'Ideal for spacious bedrooms, safe shock-absorber base system offering extra storage volume.' },
           
         { dosya: 'yatak6.jpeg', kategori: 'yatak', w: '180', d: '200', h: '110',
           baslikTR: 'Doğa Dostu Bambu Yatak', baslikEN: 'Eco-Friendly Bamboo Bed',
           aciklamaTR: 'Doğal bambu ipliklerinden dokunmuş yüzeyi ile nefes alan sağlıklı yatak.',
           aciklamaEN: 'Healthy breathing bed with surface woven from natural bamboo threads.' },
           
-        { dosya: 'yatak7.jpeg', kategori: 'yatak', w: '160', d: '200', h: '120',
-          baslikTR: 'Diamond Premium Yatak', baslikEN: 'Diamond Premium Bed',
-          aciklamaTR: 'Paket yay sistemi sayesinde eşlerin dönüşlerinden etkilenmeyen premium konfor.',
-          aciklamaEN: 'Premium comfort unaffected by partner movements thanks to the pocket spring system.' }
+        { dosya: 'yatak7.jpeg', kategori: 'yatak', w: '120', d: '200', h: '120',
+          baslikTR: 'Diamond Premium Tek Kişilik Yatak', baslikEN: 'Diamond Premium Single Bed',
+          aciklamaTR: 'Paket yay sistemi sayesinde ağırlığı dengeli dağıtan, vücut yapısına mükemmel uyum sağlayan tek kişilik premium konfor.',
+          aciklamaEN: 'Premium single comfort that perfectly adapts to the body structure, distributing weight evenly thanks to the pocket spring system.' }
     ];
     
     // Resimleri JS objelerine dönüştürerek detaylandırma
@@ -223,7 +326,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         data-aciklama-en="${urun.aciklamaEN}"
                         data-dim-w="${urun.w}"
                         data-dim-d="${urun.d}"
-                        data-dim-h="${urun.h}">
+                        data-dim-h="${urun.h}"
+                        data-is-carpet="${urun.resimYolu.includes('hali') ? 'true' : 'false'}">
                         
                         ${urun.kategori === 'perde' ? `<span class="position-absolute top-0 end-0 m-3 badge bg-secondary-gold text-dark py-2 px-3 fs-7 tracking-wider z-2 rounded-2 shadow-sm" data-i18n="badge_curtain">CLASS PERDE <span style="font-family: Arial, sans-serif;">&amp;</span> HALI</span>` : ''}
                         
@@ -234,8 +338,8 @@ document.addEventListener('DOMContentLoaded', () => {
                             <h3 class="card-title h4 font-display fw-bold mb-3 text-primary-dark urun-baslik">${urun.baslikTR}</h3>
                             <div class="mt-auto pt-3 border-top d-flex justify-content-between text-muted fs-6">
                                 <span><strong class="text-body" data-i18n="dim_w">G:</strong> ${urun.w === '-' ? '-' : urun.w + ' cm'}</span>
-                                <span><strong class="text-body" data-i18n="dim_d">D:</strong> ${urun.d === '-' ? '-' : urun.d + ' cm'}</span>
-                                <span><strong class="text-body" data-i18n="dim_h">Y:</strong> ${urun.h === '-' ? '-' : urun.h + ' cm'}</span>
+                                ${urun.resimYolu.includes('hali') ? '' : `<span><strong class="text-body" data-i18n="dim_d">D:</strong> ${urun.d === '-' ? '-' : urun.d + ' cm'}</span>`}
+                                <span><strong class="text-body" data-i18n="${urun.resimYolu.includes('hali') ? 'dim_l' : 'dim_h'}">${urun.resimYolu.includes('hali') ? 'U:' : 'Y:'}</strong> ${urun.h === '-' ? '-' : urun.h + ' cm'}</span>
                             </div>
                         </div>
                     </article>
@@ -280,6 +384,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     urun.classList.remove('active');
                 }
             });
+            
+            // Kategori notunu güncelle
+            const kategoriNotu = document.getElementById('category-note');
+            const kategoriNotuContainer = document.getElementById('category-note-container');
+            
+            if (kategoriNotu && kategoriNotuContainer) {
+                let anahtar = secilenKategori === 'all' ? 'price_all' : 'price_' + secilenKategori.replace('-', '_');
+                kategoriNotu.setAttribute('data-i18n', anahtar);
+                kategoriNotu.textContent = dilSozlugu[secilenDil][anahtar] || '';
+                kategoriNotuContainer.classList.remove('d-none');
+            }
             
             GozlemciyiTetikle();
         });
@@ -355,14 +470,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 const modalBoyutlar = document.getElementById('modal-boyutlar');
                 if (modalBoyutlar) {
+                    const isCarpet = kart.getAttribute('data-is-carpet') === 'true';
                     const lW = aktifDil === 'en' ? 'W' : 'G';
                     const lD = aktifDil === 'en' ? 'D' : 'D';
-                    const lH = aktifDil === 'en' ? 'H' : 'Y';
+                    const lH = isCarpet ? (aktifDil === 'en' ? 'L' : 'U') : (aktifDil === 'en' ? 'H' : 'Y');
+                    
+                    let dimensionsHTML = `<span>${lW}: ${w === '-' ? '-' : w + ' cm'}</span>`;
+                    if (!isCarpet) {
+                        dimensionsHTML += `<span>${lD}: ${d === '-' ? '-' : d + ' cm'}</span>`;
+                    }
+                    dimensionsHTML += `<span>${lH}: ${h === '-' ? '-' : h + ' cm'}</span>`;
+                    
                     modalBoyutlar.innerHTML = `
                         <div class="d-flex flex-wrap gap-2 gap-md-4 mb-2 fs-6 fw-semibold text-primary-dark">
-                            <span>${lW}: ${w === '-' ? '-' : w + ' cm'}</span>
-                            <span>${lD}: ${d === '-' ? '-' : d + ' cm'}</span>
-                            <span>${lH}: ${h === '-' ? '-' : h + ' cm'}</span>
+                            ${dimensionsHTML}
                         </div>
                     `;
                 }
@@ -388,98 +509,11 @@ document.addEventListener('DOMContentLoaded', () => {
     /* =========================================
        8. Çoklu Dil (TR / EN) Sistemi
        ========================================= */
-    const dilSozlugu = {
-        "tr": {
-            "skip_link": "Ana içeriğe atla",
-            "nav_home": "Ana Sayfa",
-            "nav_about": "Hakkımızda",
-            "nav_products": "Ürünler",
-            "nav_contact": "İletişim",
-            "hero_title": "Yaşam Alanlarınıza Lüks Dokunuş",
-            "hero_subtitle": "Modern tasarımlar, kaliteli işçilik ve zarafet ile evinizi yeniden yaratın.",
-            "hero_btn": "Koleksiyonu Keşfedin",
-            "about_title": "Hakkımızda",
-            "about_p1": "Yılların getirdiği ustalık ve tasarım anlayışıyla, evlerinizi sadece bir yaşam alanı değil, bir sanat eserine dönüştürüyoruz. CLASSMOBİLYA HOME olarak her bir parçada estetik ve fonksiyonelliği bir araya getiriyoruz.",
-            "about_highlight": "Mobilya sektöründeki tecrübemizi CLASS PERDE markamızla ev tekstiline de taşıyoruz.",
-            "about_p2": "Müşteri memnuniyetini ön planda tutan yaklaşımımızla, evinize en uygun çözümleri sunmak için buradayız.",
-            "categories_title": "Kategorilerimiz",
-            "categories_subtitle": "Evinizin her köşesi için özel tasarımlar",
-            "products_title": "Koleksiyonlarımız",
-            "products_subtitle": "Özenle seçilmiş mobilya ve ev tekstili ürünlerimiz",
-            "filter_all": "Tüm Koleksiyon",
-            "filter_sofas": "Oturma Odası Grubu",
-            "filter_beds": "Yatak & Baza",
-            "filter_dining": "Yemek Masası Takımı",
-            "filter_curtains": "CLASS PERDE & HALI",
-            "filter_cabinets": "Şifonyer & Dolap",
-            "badge_curtain": "CLASS PERDE",
-            "dim_w": "G:", "dim_d": "D:", "dim_h": "Y:",
-            "contact_title": "İletişime Geçin",
-            "contact_desc": "Sizleri mağazamızda ağırlamaktan ve hayalinizdeki yaşam alanını birlikte tasarlamaktan mutluluk duyarız.",
-            "contact_address": "Adres",
-            "contact_address_value": "Çamlıca Mahallesi, Tombakzade Bulvarı NO:72/A Eskişehir",
-            "contact_phone": "Telefon",
-            "contact_email": "E-posta",
-            "form_name_label": "Adınız Soyadınız",
-            "form_name_ph": "Adınız Soyadınız",
-            "form_email_label": "E-posta Adresiniz",
-            "form_email_ph": "ornek@email.com",
-            "form_msg_label": "Mesajınız",
-            "form_msg_ph": "Size nasıl yardımcı olabiliriz?",
-            "form_submit": "Gönder",
-            "modal_dimensions": "Ürün Detayları",
-            "modal_contact_btn": "Sipariş & Bilgi İçin İletişime Geçin",
-            "modal_close_btn": "Geri Dön",
-            "footer_rights": "Tüm Hakları Saklıdır."
-        },
-        "en": {
-            "skip_link": "Skip to main content",
-            "nav_home": "Home",
-            "nav_about": "About Us",
-            "nav_products": "Products",
-            "nav_contact": "Contact",
-            "hero_title": "A Touch of Luxury to Your Living Spaces",
-            "hero_subtitle": "Recreate your home with modern designs, quality craftsmanship, and elegance.",
-            "hero_btn": "Explore the Collection",
-            "about_title": "About Us",
-            "about_p1": "With years of mastery and design philosophy, we transform your homes not just into a living space, but into a work of art. At CLASSMOBİLYA HOME, we combine aesthetics and functionality in every piece.",
-            "about_highlight": "We bring our experience in the furniture sector to home textiles with our CLASS PERDE brand.",
-            "about_p2": "With our customer satisfaction-oriented approach, we are here to offer the most suitable solutions for your home.",
-            "categories_title": "Categories",
-            "categories_subtitle": "Special designs for every corner of your home",
-            "products_title": "Collections",
-            "products_subtitle": "Our carefully selected furniture and home textile products",
-            "filter_all": "All Collection",
-            "filter_sofas": "Living Room Sets",
-            "filter_beds": "Bed & Bases",
-            "filter_dining": "Dining Table Sets",
-            "filter_curtains": "CLASS PERDE & CARPET",
-            "filter_cabinets": "Cabinets & Dressers",
-            "badge_curtain": "CLASS CURTAIN & CARPET",
-            "dim_w": "W:", "dim_d": "D:", "dim_h": "H:",
-            "contact_title": "Get in Touch",
-            "contact_desc": "We would be happy to host you in our store and design your dream living space together.",
-            "contact_address": "Address",
-            "contact_address_value": "Çamlıca Mahallesi, Tombakzade Bulvarı NO:72/A Eskişehir",
-            "contact_phone": "Phone",
-            "contact_email": "Email",
-            "form_name_label": "Full Name",
-            "form_name_ph": "Your Full Name",
-            "form_email_label": "Email Address",
-            "form_email_ph": "example@email.com",
-            "form_msg_label": "Your Message",
-            "form_msg_ph": "How can we help you?",
-            "form_submit": "Send",
-            "modal_dimensions": "Product Details",
-            "modal_contact_btn": "Contact for Order & Info",
-            "modal_close_btn": "Go Back",
-            "footer_rights": "All Rights Reserved."
-        }
-    };
+    /* =========================================
+       8. Çoklu Dil (TR / EN) Sistemi
+       ========================================= */
 
     const dilButonu = document.getElementById('dil-degistirici');
-    
-    let secilenDil = localStorage.getItem('classmobilya-lang') || 'tr';
     
     function dilUygula(dilKodu) {
         secilenDil = dilKodu;
@@ -509,8 +543,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const urunKartlari = document.querySelectorAll('.product-card');
         urunKartlari.forEach(kart => {
             const baslikElemani = kart.querySelector('.urun-baslik');
+            const aciklamaElemani = kart.querySelector('.urun-aciklama');
+            
             if(baslikElemani) {
                 baslikElemani.textContent = dilKodu === 'en' ? kart.getAttribute('data-baslik-en') : kart.getAttribute('data-baslik-tr');
+            }
+            if(aciklamaElemani) {
+                aciklamaElemani.textContent = dilKodu === 'en' ? kart.getAttribute('data-aciklama-en') : kart.getAttribute('data-aciklama-tr');
             }
         });
     }

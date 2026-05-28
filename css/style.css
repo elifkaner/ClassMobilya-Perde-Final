@@ -81,6 +81,9 @@ body {
     color: var(--renk-metin);
     transition: background-color var(--gecis-normal), color var(--gecis-normal);
     overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 /* =========================================
@@ -374,12 +377,20 @@ body {
     padding-top: 80px;
 }
 .hero-bg {
-    background: linear-gradient(135deg, rgba(10,10,10,0.2) 0%, rgba(20,20,20,0.5) 100%), url('../fotograflar/koltuk.jpeg') center/cover fixed no-repeat;
+    background-image: linear-gradient(135deg, rgba(10,10,10,0.2) 0%, rgba(20,20,20,0.5) 100%), url('../fotograflar/koltuk.jpeg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     background-blend-mode: multiply;
 }
 [data-theme="dark"] .hero-bg {
-    background: linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(10,10,10,0.7) 100%), url('../fotograflar/koltuk.jpeg') center/cover fixed no-repeat;
-    background-blend-mode: multiply;
+    background-image: linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(10,10,10,0.7) 100%), url('../fotograflar/koltuk.jpeg');
+}
+
+@media (min-width: 992px) {
+    .hero-bg {
+        background-attachment: fixed;
+    }
 }
 
 .hero-content {
