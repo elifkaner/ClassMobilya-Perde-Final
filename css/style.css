@@ -207,11 +207,18 @@ body {
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
 }
 
-.navbar-brand h1 {
+.navbar-brand h1, .navbar-brand h2 {
     font-size: 1.6rem;
     letter-spacing: 3px;
     font-weight: 700;
     color: var(--renk-ana-koyu);
+}
+
+.theme-divider {
+    background-color: var(--renk-ikincil-altin) !important;
+}
+[data-theme="dark"] .theme-divider {
+    background-color: #ffffff !important;
 }
 
 .logo-subtitle {
@@ -336,11 +343,11 @@ body {
     padding-top: 80px;
 }
 .hero-bg {
-    background: linear-gradient(135deg, rgba(10,10,10,0.7) 0%, rgba(20,20,20,0.95) 100%), url('../fotograflar/koltuk.jpeg') center/cover fixed no-repeat;
+    background: linear-gradient(135deg, rgba(10,10,10,0.2) 0%, rgba(20,20,20,0.5) 100%), url('../fotograflar/koltuk.jpeg') center/cover fixed no-repeat;
     background-blend-mode: multiply;
 }
 [data-theme="dark"] .hero-bg {
-    background: linear-gradient(135deg, rgba(0,0,0,0.85) 0%, rgba(10,10,10,1) 100%), url('../fotograflar/koltuk.jpeg') center/cover fixed no-repeat;
+    background: linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(10,10,10,0.7) 100%), url('../fotograflar/koltuk.jpeg') center/cover fixed no-repeat;
     background-blend-mode: multiply;
 }
 

@@ -18,8 +18,12 @@
     <header class="header glass-header fixed-top transition-base scrolled">
         <div class="container">
             <nav class="navbar navbar-expand-lg" aria-label="Ana Menü">
-                <a class="navbar-brand logo d-flex flex-column" href="index.html" aria-label="Anasayfa">
-                    <h1 class="mb-0">CLASS<span class="text-secondary-gold">MOBİLYA</span></h1>
+                <a class="navbar-brand logo d-flex flex-column text-decoration-none" href="index.html" aria-label="Anasayfa">
+                    <div class="d-flex align-items-baseline gap-2 gap-md-3">
+                        <h1 class="mb-0">CLASS<span class="text-secondary-gold">MOBİLYA</span></h1>
+                        <div class="vr theme-divider opacity-50 align-self-center" style="height: 24px; width: 2px;"></div>
+                        <h2 class="mb-0">CLASS<span class="text-secondary-gold">PERDE & HALI</span></h2>
+                    </div>
                     <span class="logo-subtitle tracking-widest text-uppercase">HOME</span>
                 </a>
                 
@@ -34,11 +38,11 @@
                         <li class="nav-item dropdown dropdown-hover">
                             <a class="nav-link px-3 dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" data-i18n="nav_products">Ürünler</a>
                             <ul class="dropdown-menu shadow-lg border-0" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="?kategori=koltuklar" data-i18n="filter_sofas">Koltuklar</a></li>
-                                <li><a class="dropdown-item" href="?kategori=perde" data-i18n="filter_curtains">Perdeler</a></li>
+                                <li><a class="dropdown-item" href="?kategori=koltuklar" data-i18n="filter_sofas">Oturma Odası Grubu</a></li>
+                                <li><a class="dropdown-item" href="?kategori=perde" data-i18n="filter_curtains">CLASS PERDE & HALI</a></li>
                                 <li><a class="dropdown-item" href="?kategori=dolap" data-i18n="filter_cabinets">Şifonyer & Dolap</a></li>
                                 <li><a class="dropdown-item" href="?kategori=yatak" data-i18n="filter_beds">Yatak & Baza</a></li>
-                                <li><a class="dropdown-item" href="?kategori=yemek-masasi" data-i18n="filter_dining">Yemek Masaları</a></li>
+                                <li><a class="dropdown-item" href="?kategori=yemek-masasi" data-i18n="filter_dining">Yemek Masası Takımı</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="?kategori=all" data-i18n="filter_all">Tüm Koleksiyon</a></li>
                             </ul>
@@ -72,10 +76,10 @@
 
                 <div class="d-flex flex-wrap justify-content-center gap-2 mb-5 reveal filter-container" role="group">
                     <button class="btn filter-btn rounded-pill active px-4" data-filter="all" data-i18n="filter_all">Tüm Koleksiyon</button>
-                    <button class="btn filter-btn rounded-pill px-4" data-filter="koltuklar" data-i18n="filter_sofas">Koltuklar</button>
+                    <button class="btn filter-btn rounded-pill px-4" data-filter="koltuklar" data-i18n="filter_sofas">Oturma Odası Grubu</button>
                     <button class="btn filter-btn rounded-pill px-4" data-filter="yatak" data-i18n="filter_beds">Yatak & Baza</button>
-                    <button class="btn filter-btn rounded-pill px-4" data-filter="yemek-masasi" data-i18n="filter_dining">Yemek Masaları</button>
-                    <button class="btn filter-btn rounded-pill px-4" data-filter="perde" data-i18n="filter_curtains">Perdeler</button>
+                    <button class="btn filter-btn rounded-pill px-4" data-filter="yemek-masasi" data-i18n="filter_dining">Yemek Masası Takımı</button>
+                    <button class="btn filter-btn rounded-pill px-4" data-filter="perde" data-i18n="filter_curtains">CLASS PERDE & HALI</button>
                     <button class="btn filter-btn rounded-pill px-4" data-filter="dolap" data-i18n="filter_cabinets">Şifonyer & Dolap</button>
                 </div>
 
@@ -87,27 +91,27 @@
 
     <!-- Ürün Detay Modalı -->
     <div class="modal fade" id="urunModali" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content border-0 bg-card rounded-4 overflow-hidden shadow-lg">
                 <button type="button" class="btn-close btn-close-custom position-absolute top-0 end-0 m-3 z-3 rounded-circle bg-white shadow-sm p-3" data-bs-dismiss="modal" aria-label="Kapat"></button>
                 <div class="row g-0 align-items-stretch">
                     <div class="col-lg-6 p-0">
                         <img id="modal-gorsel" src="" class="img-fluid w-100 h-100 object-fit-cover" style="min-height: 350px;" alt="">
                     </div>
-                    <div class="col-lg-6 d-flex flex-column justify-content-center p-4 p-md-5 pt-5 mt-2 mt-lg-0">
+                    <div class="col-lg-6 d-flex flex-column justify-content-center p-3 p-md-4">
                         <div class="px-lg-3">
                             <span id="modal-etiket" class="badge bg-secondary-gold text-dark py-2 px-3 fs-7 tracking-wider rounded-2 shadow-sm mb-3 d-none"></span>
-                            <h2 id="modal-baslik" class="display-4 font-display fw-bold text-primary-dark mb-4"></h2>
-                            <p id="modal-aciklama" class="fs-4 text-muted mb-5 lh-lg"></p>
-                            <div class="bg-light-gold p-4 rounded-3 mb-5 border-start border-4 border-secondary-gold shadow-sm">
+                            <h2 id="modal-baslik" class="display-6 font-display fw-bold text-primary-dark mb-3"></h2>
+                            <p id="modal-aciklama" class="fs-5 text-muted mb-4 lh-lg"></p>
+                            <div class="bg-light-gold p-3 rounded-3 mb-4 border-start border-4 border-secondary-gold shadow-sm">
                                 <h4 class="h6 text-uppercase tracking-wider fw-bold mb-3 text-secondary-gold" data-i18n="modal_dimensions">Ürün Detayları</h4>
-                                <div id="modal-boyutlar" class="d-flex flex-column gap-2 fs-5 text-muted">
+                                <div id="modal-boyutlar" class="d-flex flex-column gap-2 fs-6 text-muted">
                                     <p class="mb-0">Bu tasarım özel olarak üretilmekte olup alanınıza en uygun ölçülerde tasarlanabilmektedir.</p>
                                 </div>
                             </div>
                             <div class="d-grid gap-3">
-                                <a href="index.html#contact" class="btn btn-premium btn-lg rounded-pill shadow-sm py-3 fs-5" data-i18n="modal_contact_btn">Sipariş & Bilgi İçin İletişime Geçin</a>
-                                <button type="button" class="btn btn-outline-secondary btn-lg rounded-pill py-3 fs-5" data-bs-dismiss="modal" data-i18n="modal_close_btn">Geri Dön</button>
+                                <a href="index.html#contact" class="btn btn-premium btn-md rounded-pill shadow-sm py-2 fs-6" data-i18n="modal_contact_btn">Sipariş & Bilgi İçin İletişime Geçin</a>
+                                <button type="button" class="btn btn-outline-secondary btn-md rounded-pill py-2 fs-6" data-bs-dismiss="modal" data-i18n="modal_close_btn">Geri Dön</button>
                             </div>
                         </div>
                     </div>

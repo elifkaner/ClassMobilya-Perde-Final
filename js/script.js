@@ -47,37 +47,68 @@ document.addEventListener('DOMContentLoaded', () => {
        ========================================= */
     const urunIzgarasi = document.getElementById('urun-grid');
     
-    // Geçici Ürün Listesi: Resimlerinizi isimlendirdikçe buraya dosya adlarını ekleyebilirsiniz.
     const resimListesi = [
-        { dosya: 'koltuk.jpeg', kategori: 'koltuklar' },
-        { dosya: 'perde.jpeg', kategori: 'perde' },
-        { dosya: 'dolap.jpeg', kategori: 'dolap' },
-        { dosya: 'yatak.jpeg', kategori: 'yatak' },
-        { dosya: 'yemek-masasi.jpeg', kategori: 'yemek-masasi' }
+        { dosya: 'oturma-odasi.jpeg', kategori: 'koltuklar', w: '240', d: '95', h: '85' },
+        { dosya: 'oturma-odasi-1.jpeg', kategori: 'koltuklar', w: '230', d: '90', h: '80' },
+        { dosya: 'oturma-odasi-2.jpeg', kategori: 'koltuklar', w: '250', d: '100', h: '90' },
+        { dosya: 'oturma-odasi-3.jpeg', kategori: 'koltuklar', w: '220', d: '85', h: '80' },
+        { dosya: 'oturma-odasi-4.jpeg', kategori: 'koltuklar', w: '260', d: '95', h: '85' },
+        { dosya: 'yemek-masasi.jpeg', kategori: 'yemek-masasi', w: '160', d: '90', h: '75' },
+        { dosya: 'yemek-masasi-1.jpeg', kategori: 'yemek-masasi', w: '180', d: '90', h: '75' },
+        { dosya: 'yemek-masasi-2.jpeg', kategori: 'yemek-masasi', w: '200', d: '100', h: '76' },
+        { dosya: 'yemek-masasi-3.jpeg', kategori: 'yemek-masasi', w: '150', d: '85', h: '75' },
+        { dosya: 'perde.jpeg', kategori: 'perde', w: '200', d: '-', h: '260' },
+        { dosya: 'perde1.jpeg', kategori: 'perde', w: '250', d: '-', h: '260' },
+        { dosya: 'perde2.jpeg', kategori: 'perde', w: '300', d: '-', h: '270' },
+        { dosya: 'perde3.jpeg', kategori: 'perde', w: '150', d: '-', h: '250' },
+        { dosya: 'perde4.jpeg', kategori: 'perde', w: '200', d: '-', h: '250' },
+        { dosya: 'hali.jpeg', kategori: 'perde', w: '160', d: '-', h: '230', ozel: true },
+        { dosya: 'hali1.jpeg', kategori: 'perde', w: '200', d: '-', h: '290', 
+          baslikTR: 'Modern Desenli Halı', baslikEN: 'Modern Patterned Carpet', 
+          aciklamaTR: 'Odanıza ferahlık katacak, silinebilir ve leke tutmaz özel dokuma modern halı tasarımı. Antialerjik yapısıyla çocuklu aileler için idealdir.', 
+          aciklamaEN: 'Modern carpet design woven with easily wipeable and stain-resistant fabric, adding spaciousness to your room. Ideal for families with its anti-allergic structure.' },
+        { dosya: 'dolap.jpeg', kategori: 'dolap', w: '200', d: '60', h: '210' },
+        { dosya: 'dolap1.jpeg', kategori: 'dolap', w: '180', d: '55', h: '200' },
+        { dosya: 'dolap2.jpeg', kategori: 'dolap', w: '220', d: '65', h: '220' },
+        { dosya: 'dolap3.jpeg', kategori: 'dolap', w: '150', d: '50', h: '190' },
+        { dosya: 'yatak.jpeg', kategori: 'yatak', w: '160', d: '200', h: '110' },
+        { dosya: 'yatak1.jpeg', kategori: 'yatak', w: '180', d: '200', h: '120' },
+        { dosya: 'yatak2.jpeg', kategori: 'yatak', w: '150', d: '200', h: '105' },
+        { dosya: 'yatak3.jpeg', kategori: 'yatak', w: '160', d: '200', h: '115' },
+        { dosya: 'yatak4.jpeg', kategori: 'yatak', w: '200', d: '200', h: '125' },
+        { dosya: 'yatak5.jpeg', kategori: 'yatak', w: '140', d: '190', h: '100' },
+        { dosya: 'yatak6.jpeg', kategori: 'yatak', w: '180', d: '200', h: '110' },
+        { dosya: 'yatak7.jpeg', kategori: 'yatak', w: '160', d: '200', h: '120' }
     ];
     
     // Resimleri JS objelerine dönüştürerek detaylandırma
     const urunler = resimListesi.map((uye, indeks) => {
         let kategoriSecimi = uye.kategori;
         
-        let kategoriIsmiTR = kategoriSecimi === 'koltuklar' ? 'Lüks Koltuk' : 
-                             kategoriSecimi === 'perde' ? 'Özel Perde' : 
+        let kategoriIsmiTR = kategoriSecimi === 'koltuklar' ? 'Oturma Odası Grubu' : 
+                             kategoriSecimi === 'perde' ? 'Perde & Halı' : 
                              kategoriSecimi === 'dolap' ? 'Şık Mobilya' : 
-                             kategoriSecimi === 'yemek-masasi' ? 'Yemek Masası' : 'Konfor Yatak';
+                             kategoriSecimi === 'yemek-masasi' ? 'Yemek Masası Takımı' : 'Konfor Yatak';
                              
-        let kategoriIsmiEN = kategoriSecimi === 'koltuklar' ? 'Luxury Sofa' : 
-                             kategoriSecimi === 'perde' ? 'Custom Curtain' : 
+        let kategoriIsmiEN = kategoriSecimi === 'koltuklar' ? 'Living Room Set' : 
+                             kategoriSecimi === 'perde' ? 'Curtain & Carpet' : 
                              kategoriSecimi === 'dolap' ? 'Elegant Furniture' : 
-                             kategoriSecimi === 'yemek-masasi' ? 'Dining Table' : 'Comfort Bed';
+                             kategoriSecimi === 'yemek-masasi' ? 'Dining Table Set' : 'Comfort Bed';
+
+        let varsayilanAciklamaTR = `Evinizin dekorasyonuna uyum sağlayacak birinci sınıf malzemelerden üretilmiş ${kategoriIsmiTR.toLowerCase()} tasarımı. İhtiyacınıza göre özel ölçülerde üretilebilir.`;
+        let varsayilanAciklamaEN = `Premium ${kategoriIsmiEN.toLowerCase()} design crafted from top-quality materials to match your home decoration. Can be custom-sized according to your needs.`;
 
         return {
             id: indeks,
             resimYolu: `fotograflar/${uye.dosya}`,
             kategori: kategoriSecimi,
-            baslikTR: `Örnek ${kategoriIsmiTR}`,
-            baslikEN: `Sample ${kategoriIsmiEN}`,
-            aciklamaTR: `Evinizin dekorasyonuna uyum sağlayacak birinci sınıf malzemelerden üretilmiş ${kategoriIsmiTR.toLowerCase()} tasarımı. İhtiyacınıza göre özel ölçülerde üretilebilir.`,
-            aciklamaEN: `Premium ${kategoriIsmiEN.toLowerCase()} design crafted from top-quality materials to match your home decoration. Can be custom-sized according to your needs.`
+            baslikTR: uye.baslikTR || (uye.dosya.includes('hali') && !uye.ozel ? 'Özel Dokuma Halı' : `Örnek ${kategoriIsmiTR}`),
+            baslikEN: uye.baslikEN || (uye.dosya.includes('hali') && !uye.ozel ? 'Custom Woven Carpet' : `Sample ${kategoriIsmiEN}`),
+            aciklamaTR: uye.aciklamaTR || varsayilanAciklamaTR,
+            aciklamaEN: uye.aciklamaEN || varsayilanAciklamaEN,
+            w: uye.w || 'Özel',
+            d: uye.d || 'Özel',
+            h: uye.h || 'Özel'
         };
     });
 
@@ -96,9 +127,12 @@ document.addEventListener('DOMContentLoaded', () => {
                         data-baslik-tr="${urun.baslikTR}" 
                         data-baslik-en="${urun.baslikEN}" 
                         data-aciklama-tr="${urun.aciklamaTR}" 
-                        data-aciklama-en="${urun.aciklamaEN}">
+                        data-aciklama-en="${urun.aciklamaEN}"
+                        data-dim-w="${urun.w}"
+                        data-dim-d="${urun.d}"
+                        data-dim-h="${urun.h}">
                         
-                        ${urun.kategori === 'perde' ? `<span class="position-absolute top-0 end-0 m-3 badge bg-secondary-gold text-dark py-2 px-3 fs-7 tracking-wider z-2 rounded-2 shadow-sm" data-i18n="badge_curtain">CLASS PERDE</span>` : ''}
+                        ${urun.kategori === 'perde' ? `<span class="position-absolute top-0 end-0 m-3 badge bg-secondary-gold text-dark py-2 px-3 fs-7 tracking-wider z-2 rounded-2 shadow-sm" data-i18n="badge_curtain">CLASS PERDE & HALI</span>` : ''}
                         
                         <div class="card-img-wrapper overflow-hidden ratio ratio-4x3">
                             <img src="${urun.resimYolu}" alt="${urun.baslikTR}" class="card-img-top object-fit-cover" loading="lazy">
@@ -106,9 +140,9 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div class="card-body d-flex flex-column p-4">
                             <h3 class="card-title h4 font-display fw-bold mb-3 text-primary-dark urun-baslik">${urun.baslikTR}</h3>
                             <div class="mt-auto pt-3 border-top d-flex justify-content-between text-muted fs-6">
-                                <span><strong class="text-body" data-i18n="dim_w">G:</strong> Özel</span>
-                                <span><strong class="text-body" data-i18n="dim_d">D:</strong> Özel</span>
-                                <span><strong class="text-body" data-i18n="dim_h">Y:</strong> Özel</span>
+                                <span><strong class="text-body" data-i18n="dim_w">G:</strong> ${urun.w === '-' ? '-' : urun.w + ' cm'}</span>
+                                <span><strong class="text-body" data-i18n="dim_d">D:</strong> ${urun.d === '-' ? '-' : urun.d + ' cm'}</span>
+                                <span><strong class="text-body" data-i18n="dim_h">Y:</strong> ${urun.h === '-' ? '-' : urun.h + ' cm'}</span>
                             </div>
                         </div>
                     </article>
@@ -215,6 +249,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 const baslik = aktifDil === 'en' ? kart.getAttribute('data-baslik-en') : kart.getAttribute('data-baslik-tr');
                 const aciklama = aktifDil === 'en' ? kart.getAttribute('data-aciklama-en') : kart.getAttribute('data-aciklama-tr');
                 
+                const w = kart.getAttribute('data-dim-w');
+                const d = kart.getAttribute('data-dim-d');
+                const h = kart.getAttribute('data-dim-h');
+                
                 if(modalBaslik) modalBaslik.textContent = baslik;
                 if(modalGorsel) {
                     modalGorsel.setAttribute('src', imgSrc);
@@ -222,6 +260,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 if(modalAciklama) modalAciklama.textContent = aciklama;
                 
+                const modalBoyutlar = document.getElementById('modal-boyutlar');
+                if (modalBoyutlar) {
+                    const lW = aktifDil === 'en' ? 'W' : 'G';
+                    const lD = aktifDil === 'en' ? 'D' : 'D';
+                    const lH = aktifDil === 'en' ? 'H' : 'Y';
+                    const warningTR = "Bu tasarım belirtilen ölçülerde stokta olup, isteğinize göre alanınıza en uygun özel ölçülerde de tasarlanabilmektedir.";
+                    const warningEN = "This design is in stock with the specified dimensions and can also be custom designed to best fit your space upon request.";
+                    const warning = aktifDil === 'en' ? warningEN : warningTR;
+                    
+                    modalBoyutlar.innerHTML = `
+                        <div class="d-flex flex-wrap gap-4 mb-2 fs-5 fw-semibold text-primary-dark">
+                            <span>${lW}: ${w === '-' ? '-' : w + ' cm'}</span>
+                            <span>${lD}: ${d === '-' ? '-' : d + ' cm'}</span>
+                            <span>${lH}: ${h === '-' ? '-' : h + ' cm'}</span>
+                        </div>
+                        <p class="mb-0 fs-7">${warning}</p>
+                    `;
+                }
+
                 if(kategoriSpan && modalEtiket) {
                     modalEtiket.textContent = kategoriSpan.textContent;
                     modalEtiket.classList.remove('d-none');
@@ -262,17 +319,17 @@ document.addEventListener('DOMContentLoaded', () => {
             "products_title": "Koleksiyonlarımız",
             "products_subtitle": "Özenle seçilmiş mobilya ve ev tekstili ürünlerimiz",
             "filter_all": "Tüm Koleksiyon",
-            "filter_sofas": "Koltuklar",
+            "filter_sofas": "Oturma Odası Grubu",
             "filter_beds": "Yatak & Baza",
-            "filter_dining": "Yemek Masaları",
-            "filter_curtains": "Perdeler",
+            "filter_dining": "Yemek Masası Takımı",
+            "filter_curtains": "CLASS PERDE & HALI",
             "filter_cabinets": "Şifonyer & Dolap",
             "badge_curtain": "CLASS PERDE",
             "dim_w": "G:", "dim_d": "D:", "dim_h": "Y:",
             "contact_title": "İletişime Geçin",
             "contact_desc": "Sizleri mağazamızda ağırlamaktan ve hayalinizdeki yaşam alanını birlikte tasarlamaktan mutluluk duyarız.",
             "contact_address": "Adres",
-            "contact_address_value": "Lüks Mobilyacılar Caddesi No:1, İstanbul",
+            "contact_address_value": "Çamlıca Mahallesi, Tombakzade Bulvarı NO:72/A Eskişehir",
             "contact_phone": "Telefon",
             "contact_email": "E-posta",
             "form_name_label": "Adınız Soyadınız",
@@ -300,22 +357,22 @@ document.addEventListener('DOMContentLoaded', () => {
             "about_p1": "With years of mastery and design philosophy, we transform your homes not just into a living space, but into a work of art. At CLASSMOBİLYA HOME, we combine aesthetics and functionality in every piece.",
             "about_highlight": "We bring our experience in the furniture sector to home textiles with our CLASS PERDE brand.",
             "about_p2": "With our customer satisfaction-oriented approach, we are here to offer the most suitable solutions for your home.",
-            "categories_title": "Our Categories",
+            "categories_title": "Categories",
             "categories_subtitle": "Special designs for every corner of your home",
-            "products_title": "Our Collections",
+            "products_title": "Collections",
             "products_subtitle": "Our carefully selected furniture and home textile products",
             "filter_all": "All Collection",
-            "filter_sofas": "Sofas",
+            "filter_sofas": "Living Room Sets",
             "filter_beds": "Bed & Bases",
-            "filter_dining": "Dining Tables",
-            "filter_curtains": "Curtains",
+            "filter_dining": "Dining Table Sets",
+            "filter_curtains": "CLASS PERDE & CARPET",
             "filter_cabinets": "Cabinets & Dressers",
-            "badge_curtain": "CLASS CURTAIN",
+            "badge_curtain": "CLASS CURTAIN & CARPET",
             "dim_w": "W:", "dim_d": "D:", "dim_h": "H:",
             "contact_title": "Get in Touch",
             "contact_desc": "We would be happy to host you in our store and design your dream living space together.",
             "contact_address": "Address",
-            "contact_address_value": "Luxury Furniture Street No:1, Istanbul",
+            "contact_address_value": "Çamlıca Mahallesi, Tombakzade Bulvarı NO:72/A Eskişehir",
             "contact_phone": "Phone",
             "contact_email": "Email",
             "form_name_label": "Full Name",
