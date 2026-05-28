@@ -21,10 +21,13 @@
     <!-- Google Fonts: Inter for UI, Playfair Display for headings -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- LCP Optimizasyonu: Hero Arkaplanı -->
+    <link rel="preload" as="image" href="fotograflar/koltuk.jpeg">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=2">
 
     <!-- Google Analytics (Fake ID for project requirement) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-TEST123456"></script>
@@ -41,12 +44,12 @@
     
     <header class="header glass-header fixed-top transition-base">
         <div class="container">
-            <nav class="navbar navbar-expand-lg" aria-label="Ana Menü">
-                <a class="navbar-brand logo d-flex flex-column text-decoration-none" href="index.html" aria-label="Anasayfa">
-                    <div class="d-flex align-items-baseline gap-2 gap-md-3">
+            <nav class="navbar navbar-expand-lg custom-navbar" aria-label="Ana Menü">
+                <a class="navbar-brand logo d-flex flex-column text-decoration-none" href="index.html" aria-label="Ana Sayfa">
+                    <div class="d-flex flex-wrap align-items-baseline gap-2 gap-md-3">
                         <h1 class="mb-0">CLASS<span class="text-secondary-gold">MOBİLYA</span></h1>
                         <div class="vr theme-divider opacity-50 align-self-center" style="height: 24px; width: 2px;"></div>
-                        <h2 class="mb-0">CLASS<span class="text-secondary-gold">PERDE & HALI</span></h2>
+                        <h2 class="mb-0">CLASS<span class="text-secondary-gold">PERDE <span style="font-family: Arial, sans-serif;" class="mx-1">&amp;</span> HALI</span></h2>
                     </div>
                     <span class="logo-subtitle tracking-widest text-uppercase">HOME</span>
                 </a>
@@ -58,7 +61,7 @@
                 <div class="collapse navbar-collapse" id="mainNav">
                     <ul class="navbar-nav mx-auto mb-2 mb-lg-0 nav-list">
                         <li class="nav-item">
-                            <a class="nav-link px-3" href="index.html#hero" data-i18n="nav_home">Anasayfa</a>
+                            <a class="nav-link px-3" href="index.html#hero" data-i18n="nav_home">Ana Sayfa</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link px-3" href="index.html#about" data-i18n="nav_about">Hakkımızda</a>
@@ -122,7 +125,7 @@
                 <div class="row align-items-center gy-5">
                     <div class="col-lg-6 reveal">
                         <div class="image-wrapper position-relative shape-asymmetric overflow-hidden shadow-lg premium-border">
-                            <img src="fotograflar/dukkan-tabelasi/tabela.jpeg" alt="Class Mobilya Mağazası" class="img-fluid w-100 object-fit-cover" loading="lazy">
+                            <img src="fotograflar/dukkan-tabelasi/tabela.jpeg" alt="Class Mobilya Mağazası" class="img-fluid w-100 object-fit-cover" width="800" height="600" loading="lazy">
                         </div>
                     </div>
                     <div class="col-lg-5 offset-lg-1 reveal">
@@ -133,7 +136,7 @@
                             <p class="fs-6 mb-0 fst-italic text-secondary-gold fw-semibold font-display" data-i18n="about_highlight">Mobilya sektöründeki tecrübemizi CLASS PERDE markamızla ev tekstiline de taşıyoruz.</p>
                         </div>
                         <div class="mb-4 text-center">
-                            <img src="fotograflar/dukkan-tabelasi/classperde.jpeg" alt="Class Perde Mağazası" class="img-fluid rounded-4 shadow-sm border border-secondary-gold" style="max-height: 240px; width: auto;" loading="lazy">
+                            <img src="fotograflar/dukkan-tabelasi/classperde.jpeg" alt="Class Perde Mağazası" class="img-fluid rounded-4 shadow-sm border border-secondary-gold" width="400" height="300" style="max-height: 240px; width: auto;" loading="lazy">
                         </div>
                         <p class="fs-6 text-muted" data-i18n="about_p2">Müşteri memnuniyetini ön planda tutan yaklaşımımızla, evinize en uygun çözümleri sunmak için buradayız.</p>
                     </div>
@@ -240,7 +243,7 @@
                                 </div>
                                 <div>
                                     <strong class="d-block text-body mb-1" data-i18n="contact_address">Adres</strong>
-                                    <span data-i18n="contact_address_value">Çamlıca Mahallesi, Tombakzade Bulvarı NO:72/A Eskişehir</span>
+                                    <span>Çamlıca Mahallesi Tombakzade Bulvarı NO:72/A Eskişehir</span>
                                 </div>
                             </div>
                             <div class="d-flex align-items-start gap-3">
@@ -249,31 +252,23 @@
                                 </div>
                                 <div>
                                     <strong class="d-block text-body mb-1" data-i18n="contact_phone">Telefon</strong>
-                                    <a href="tel:+905555555555" class="text-decoration-none text-muted link-hover">+90 (531) 517 35 71 </a>
+                                    <a href="tel:+905315173571" class="text-decoration-none text-muted link-hover">+90 (531) 517 35 71 </a>
                                 </div>
                             </div>
-                            <div class="d-flex align-items-start gap-3">
-                                <div class="icon-box text-secondary-gold">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-envelope-fill" viewBox="0 0 16 16"><path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/></svg>
-                                </div>
-                                <div>
-                                    <strong class="d-block text-body mb-1" data-i18n="contact_email">E-posta</strong>
-                                    <a href="mailto:info@classmobilyahome.com" class="text-decoration-none text-muted link-hover">info@classmobilyahome.com</a>
-                                </div>
-                            </div>
+
                         </address>
                     </aside>
                     
                     <div class="col-lg-7">
                         <div class="card border-0 shadow-lg p-md-5 p-4 rounded-4 bg-card">
-                            <form action="https://formspree.io/f/placeholder_id" method="POST" class="needs-validation" novalidate>
+                            <form action="https://formsubmit.co/elifkanerx@gmail.com" method="POST" class="needs-validation" novalidate>
                                 <div class="mb-4">
                                     <label for="name" class="form-label fw-semibold" data-i18n="form_name_label">Adınız Soyadınız</label>
                                     <input type="text" class="form-control form-control-lg bg-input border-0 shadow-none" id="name" name="name" required placeholder="Adınız Soyadınız" data-i18n-ph="form_name_ph">
                                 </div>
                                 <div class="mb-4">
                                     <label for="email" class="form-label fw-semibold" data-i18n="form_email_label">E-posta Adresiniz</label>
-                                    <input type="email" class="form-control form-control-lg bg-input border-0 shadow-none" id="email" name="email" required placeholder="ornek@email.com" data-i18n-ph="form_email_ph">
+                                    <input type="email" class="form-control form-control-lg bg-input border-0 shadow-none" id="email" name="email" required placeholder="ornek@gmail.com" data-i18n-ph="form_email_ph">
                                 </div>
                                 <div class="mb-4">
                                     <label for="message" class="form-label fw-semibold" data-i18n="form_msg_label">Mesajınız</label>
@@ -302,9 +297,9 @@
     </footer>
 
     <!-- Bootstrap 5 JS Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmxc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     
     <!-- Custom JS -->
-    <script src="js/script.js"></script>
+    <script src="js/script-v2.js"></script>
 </body>
 </html>

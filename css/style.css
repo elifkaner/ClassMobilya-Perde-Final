@@ -4,7 +4,7 @@
 :root {
     /* Renk Paleti - Aydınlık Tema */
     --renk-ana-koyu: #0a0a0a;
-    --renk-ikincil-altin: #d4af37; /* Daha Parlak, Özgün Altın */
+    --renk-ikincil-altin: #a37910; /* Accessibility (A11y) uyumlu daha koyu altın */
     --renk-arkaplan: #faf9f6; /* Kırık Beyaz (Off-white) */
     --renk-arkaplan-alt: #f0ede6;
     --renk-kart-arkaplan: #ffffff;
@@ -16,8 +16,8 @@
     --renk-acik-altin: rgba(212, 175, 55, 0.08);
     
     /* Tipografi */
-    --font-ana: 'Inter', sans-serif;
-    --font-baslik: 'Playfair Display', serif;
+    --font-ana: 'Outfit', sans-serif;
+    --font-baslik: 'Montserrat', sans-serif;
     
     /* Animasyon Geçişleri */
     --gecis-hizli: 0.25s ease-in-out;
@@ -43,23 +43,36 @@
 /* =========================================
    Özgün Custom Scrollbar
    ========================================= */
-::-webkit-scrollbar {
-    width: 8px;
+@media (min-width: 992px) {
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+        background: var(--renk-arkaplan);
+    }
+    ::-webkit-scrollbar-thumb {
+        background: var(--renk-ikincil-altin);
+        border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--renk-ana-koyu);
+    }
 }
-::-webkit-scrollbar-track {
-    background: var(--renk-arkaplan);
-}
-::-webkit-scrollbar-thumb {
-    background: var(--renk-ikincil-altin);
-    border-radius: 10px;
-}
-::-webkit-scrollbar-thumb:hover {
-    background: var(--renk-ana-koyu);
+
+@media (max-width: 991px) {
+    ::-webkit-scrollbar {
+        display: none;
+    }
+    * {
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
 }
 
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 90px;
+    overflow-x: hidden;
 }
 
 body {
@@ -207,9 +220,27 @@ body {
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
 }
 
-.navbar-brand h1, .navbar-brand h2 {
-    font-size: 1.6rem;
-    letter-spacing: 3px;
+/* Özel Navbar Toggler (Mobil Menü İkonu) */
+.custom-navbar .navbar-toggler {
+    border-color: var(--renk-kenarlik);
+}
+.custom-navbar .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.65%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+[data-theme="dark"] .custom-navbar .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-brand h1 {
+    font-size: clamp(1rem, 4vw, 1.6rem);
+    letter-spacing: clamp(1px, 1vw, 3px);
+    font-weight: 700;
+    color: var(--renk-ana-koyu);
+}
+
+.navbar-brand h2 {
+    font-size: clamp(0.75rem, 3vw, 1.2rem);
+    letter-spacing: clamp(0.5px, 0.5vw, 2px);
     font-weight: 700;
     color: var(--renk-ana-koyu);
 }
@@ -472,6 +503,18 @@ body {
     min-height: 100vh;
 }
 
+.modal-image {
+    min-height: 200px;
+    max-height: 300px;
+}
+
+@media (min-width: 992px) {
+    .modal-image {
+        min-height: 400px;
+        max-height: none;
+    }
+}
+
 .btn-close-custom {
     opacity: 0.8;
     transition: all var(--gecis-hizli);
@@ -480,4 +523,14 @@ body {
     opacity: 1;
     transform: rotate(180deg) scale(1.1);
     background-color: var(--renk-ikincil-altin);
+}
+
+/* Form Elemanları Karanlık Tema Düzenlemesi */
+[data-theme="dark"] .bg-input,
+[data-theme="dark"] .form-label {
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .bg-input::placeholder {
+    color: rgba(255, 255, 255, 0.5) !important;
 }

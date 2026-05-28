@@ -4,13 +4,14 @@ document.addEventListener('DOMContentLoaded', () => {
        ========================================= */
     const temaButonu = document.getElementById('tema-degistirici');
     const kokElement = document.documentElement;
-    const KAYIT_ANAHTARI = 'classmobilya-tema';
+    const KAYIT_ANAHTARI = 'classmobilya-tema-v2';
 
-    const kayitliTema = localStorage.getItem(KAYIT_ANAHTARI);
-    const sistemKaranlikMi = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-    if (kayitliTema === 'dark' || (!kayitliTema && sistemKaranlikMi)) {
+    const kayitliTema = localStorage.getItem(KAYIT_ANAHTARI) || 'light';
+    
+    if (kayitliTema === 'dark') {
         kokElement.setAttribute('data-theme', 'dark');
+    } else {
+        kokElement.setAttribute('data-theme', 'light');
     }
 
     if(temaButonu) {
@@ -23,11 +24,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (olay) => {
-        if (!localStorage.getItem(KAYIT_ANAHTARI)) {
-            kokElement.setAttribute('data-theme', olay.matches ? 'dark' : 'light');
-        }
-    });
+    // window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (olay) => {
+    //     if (!localStorage.getItem(KAYIT_ANAHTARI)) {
+    //         kokElement.setAttribute('data-theme', olay.matches ? 'dark' : 'light');
+    //     }
+    // });
 
     /* =========================================
        2. Menü Kaydırma Efekti (Header Scroll)
@@ -46,69 +47,161 @@ document.addEventListener('DOMContentLoaded', () => {
        3. Dinamik Ürün Listesi ve Kategorizasyon
        ========================================= */
     const urunIzgarasi = document.getElementById('urun-grid');
-    
     const resimListesi = [
-        { dosya: 'oturma-odasi.jpeg', kategori: 'koltuklar', w: '240', d: '95', h: '85' },
-        { dosya: 'oturma-odasi-1.jpeg', kategori: 'koltuklar', w: '230', d: '90', h: '80' },
-        { dosya: 'oturma-odasi-2.jpeg', kategori: 'koltuklar', w: '250', d: '100', h: '90' },
-        { dosya: 'oturma-odasi-3.jpeg', kategori: 'koltuklar', w: '220', d: '85', h: '80' },
-        { dosya: 'oturma-odasi-4.jpeg', kategori: 'koltuklar', w: '260', d: '95', h: '85' },
-        { dosya: 'yemek-masasi.jpeg', kategori: 'yemek-masasi', w: '160', d: '90', h: '75' },
-        { dosya: 'yemek-masasi-1.jpeg', kategori: 'yemek-masasi', w: '180', d: '90', h: '75' },
-        { dosya: 'yemek-masasi-2.jpeg', kategori: 'yemek-masasi', w: '200', d: '100', h: '76' },
-        { dosya: 'yemek-masasi-3.jpeg', kategori: 'yemek-masasi', w: '150', d: '85', h: '75' },
-        { dosya: 'perde.jpeg', kategori: 'perde', w: '200', d: '-', h: '260' },
-        { dosya: 'perde1.jpeg', kategori: 'perde', w: '250', d: '-', h: '260' },
-        { dosya: 'perde2.jpeg', kategori: 'perde', w: '300', d: '-', h: '270' },
-        { dosya: 'perde3.jpeg', kategori: 'perde', w: '150', d: '-', h: '250' },
-        { dosya: 'perde4.jpeg', kategori: 'perde', w: '200', d: '-', h: '250' },
-        { dosya: 'hali.jpeg', kategori: 'perde', w: '160', d: '-', h: '230', ozel: true },
+        { dosya: 'oturma-odasi.jpeg', kategori: 'koltuklar', w: '240', d: '95', h: '85',
+          baslikTR: 'Comfort Köşe Takımı', baslikEN: 'Comfort Corner Sofa',
+          aciklamaTR: 'Extra ithal kuşak hareketli kumaş. Süngeri 36 dansite, iskeleti ve ayakları fırınlanmış gürgen ağacından oluşmaktadır. Ayak renkleri ve ölçüleri isteğe göre değişebilir.',
+          aciklamaEN: 'Extra imported belt, dynamic fabric. 36 density sponge, frame and legs are made of baked hornbeam wood. Leg colors and dimensions can be customized.' },
+          
+        { dosya: 'oturma-odasi-1.jpeg', kategori: 'koltuklar', w: '230', d: '90', h: '80',
+          baslikTR: 'Paris Koltuk Takımı', baslikEN: 'Paris Sofa Set',
+          aciklamaTR: 'İskeleti fırınlanmış gürgen ağacından oluşmaktadır. Ayakları metal gümüş, siyah ve gold olarak üretilebilir. 32 dansite sünger, isteğe göre sertlik derecesi ayarlanabilir.',
+          aciklamaEN: 'Frame made of baked hornbeam wood. Metal legs available in silver, black, and gold. 32 density sponge, customizable firmness.' },
+          
+        { dosya: 'oturma-odasi-2.jpeg', kategori: 'koltuklar', w: '250', d: '100', h: '90',
+          baslikTR: 'Barcelona Koltuk Takımı', baslikEN: 'Barcelona Sofa Set',
+          aciklamaTR: 'Sırtlar ve kollar açılıp geniş yatak olmaktadır. Ayaklar ve iskeleti fırınlanmış gürgen ağacından oluşmaktadır.',
+          aciklamaEN: 'Backrests and armrests open to become a wide bed. Legs and frame are made of baked hornbeam wood.' },
+          
+        { dosya: 'oturma-odasi-3.jpeg', kategori: 'koltuklar', w: '220', d: '85', h: '80',
+          baslikTR: 'Soft Koltuk Takımı', baslikEN: 'Soft Sofa Set',
+          aciklamaTR: 'Sandıklı tasarım, yüksek ayaklı. Fırınlanmış gürgen ağacından üretilmiştir. Kumaş ve ayak renkleri isteğe göre değişebilir.',
+          aciklamaEN: 'Design with storage, high legs. Made of baked hornbeam wood. Fabric and leg colors can be customized.' },
+          
+        { dosya: 'oturma-odasi-4.jpeg', kategori: 'koltuklar', w: '260', d: '95', h: '85',
+          baslikTR: 'Madrid Koltuk Takımı', baslikEN: 'Madrid Sofa Set',
+          aciklamaTR: 'Yüksek ayaklı ve zarif görsel tasarım. Ayak ve kumaş renkleri değiştirilebilir.',
+          aciklamaEN: 'Elegant visual design with high legs. Leg and fabric colors can be customized.' },
+          
+        { dosya: 'yemek-masasi.jpeg', kategori: 'yemek-masasi', w: '130', d: '80', h: '75',
+          baslikTR: 'MDF Yemek Masası Takımı', baslikEN: 'MDF Dining Table Set',
+          aciklamaTR: 'MDF masa, 38’lik profil ayak. Sandalyeler iç malzeme ve döşeme altları MDF. Masa ölçüsü 80x130 cm.',
+          aciklamaEN: 'MDF table, 38 profile legs. Chairs with MDF inner material. Table dimensions 80x130 cm.' },
+          
+        { dosya: 'yemek-masasi-1.jpeg', kategori: 'yemek-masasi', w: '90', d: '90', h: '75',
+          baslikTR: 'Ekonomik Yuvarlak Masa', baslikEN: 'Economic Round Table',
+          aciklamaTR: '90x90 ekonomik masa modeli. Suntalem malzeme, zarif sandalye detaylı.',
+          aciklamaEN: '90x90 economic round table model. Chipboard material, elegant chair details.' },
+          
+        { dosya: 'yemek-masasi-2.jpeg', kategori: 'yemek-masasi', w: '200', d: '100', h: '76',
+          baslikTR: 'Küçük Yemek Masası', baslikEN: 'Small Dining Table',
+          aciklamaTR: 'Küçük aileler için ideal, leke tutmaz özel kumaş kaplı sandalyelere sahip zarif ve dayanıklı masa takımı.',
+          aciklamaEN: 'Ideal for small families, elegant and durable table set with stain-resistant custom fabric chairs.' },
+          
+        { dosya: 'yemek-masasi-3.jpeg', kategori: 'yemek-masasi', w: '150', d: '85', h: '75',
+          baslikTR: 'Ahşap Desenli Yemek Masası', baslikEN: 'Wood Patterned Dining Table',
+          aciklamaTR: 'Şık ve modern ahşap desenli yüzey, paslanmaz çelik ayak detaylarıyla uzun ömürlü kullanım.',
+          aciklamaEN: 'Stylish and modern wood patterned surface, long-lasting use with stainless steel leg details.' },
+          
+        { dosya: 'perde.jpeg', kategori: 'perde', w: '200', d: '-', h: '260',
+          baslikTR: 'Lüks Kruvaze Tül Perde', baslikEN: 'Luxury Tulle Curtain',
+          aciklamaTR: 'Evinize zarafet katan, özel tasarım lüks kruvaze tül perde.',
+          aciklamaEN: 'Specially designed luxury tulle curtain adding elegance to your home.' },
+          
+        { dosya: 'perde1.jpeg', kategori: 'perde', w: '250', d: '-', h: '260',
+          baslikTR: 'Keten Fon Perde', baslikEN: 'Linen Drape Curtain',
+          aciklamaTR: 'Güneş ışığını nazikçe süzen, kırışmaz keten dokulu şık fon perde.',
+          aciklamaEN: 'Stylish linen drape curtain that gently filters sunlight and is wrinkle-resistant.' },
+          
+        { dosya: 'perde2.jpeg', kategori: 'perde', w: '300', d: '-', h: '270',
+          baslikTR: 'Mavi Dokulu Fon Perde', baslikEN: 'Blue Textured Drape',
+          aciklamaTR: 'Kalın dokusu ve özel deseniyle evinize şıklık katan, güneşi engelleyen mavi fon perde.',
+          aciklamaEN: 'Blue drape curtain with thick texture and special pattern that blocks the sun and adds elegance to your home.' },
+          
+        { dosya: 'perde3.jpeg', kategori: 'perde', w: '150', d: '-', h: '250',
+          baslikTR: 'Rustik Tül Perde', baslikEN: 'Rustic Tulle Curtain',
+          aciklamaTR: 'Ahşap rustik detaylarıyla otantik bir hava katan ince dokuma tül.',
+          aciklamaEN: 'Finely woven tulle adding an authentic atmosphere with wooden rustic details.' },
+          
+        { dosya: 'perde4.jpeg', kategori: 'perde', w: '200', d: '-', h: '250',
+          baslikTR: 'Kadife Karartma Fon', baslikEN: 'Velvet Blackout Drape',
+          aciklamaTR: 'Işığı tamamen kesen, yatak odaları için ideal premium kadife karartma perde.',
+          aciklamaEN: 'Premium velvet blackout curtain that completely blocks light, ideal for bedrooms.' },
+          
+        { dosya: 'hali.jpeg', kategori: 'perde', w: '160', d: '-', h: '230', ozel: true,
+          baslikTR: 'Zengin Halı Çeşitleri', baslikEN: 'Rich Carpet Varieties',
+          aciklamaTR: 'Mağazamızda her tarza ve bütçeye uygun yüzlerce farklı halı seçeneği sizleri bekliyor. Klasikten moderne tüm renk ve desenler mevcut.',
+          aciklamaEN: 'Hundreds of different carpet options suitable for every style and budget are waiting for you in our store. All colors and patterns from classic to modern are available.' },
+          
         { dosya: 'hali1.jpeg', kategori: 'perde', w: '200', d: '-', h: '290', 
-          baslikTR: 'Modern Desenli Halı', baslikEN: 'Modern Patterned Carpet', 
+          baslikTR: 'Özel Tasarım Halı', baslikEN: 'Custom Design Carpet', 
           aciklamaTR: 'Odanıza ferahlık katacak, silinebilir ve leke tutmaz özel dokuma modern halı tasarımı. Antialerjik yapısıyla çocuklu aileler için idealdir.', 
           aciklamaEN: 'Modern carpet design woven with easily wipeable and stain-resistant fabric, adding spaciousness to your room. Ideal for families with its anti-allergic structure.' },
-        { dosya: 'dolap.jpeg', kategori: 'dolap', w: '200', d: '60', h: '210' },
-        { dosya: 'dolap1.jpeg', kategori: 'dolap', w: '180', d: '55', h: '200' },
-        { dosya: 'dolap2.jpeg', kategori: 'dolap', w: '220', d: '65', h: '220' },
-        { dosya: 'dolap3.jpeg', kategori: 'dolap', w: '150', d: '50', h: '190' },
-        { dosya: 'yatak.jpeg', kategori: 'yatak', w: '160', d: '200', h: '110' },
-        { dosya: 'yatak1.jpeg', kategori: 'yatak', w: '180', d: '200', h: '120' },
-        { dosya: 'yatak2.jpeg', kategori: 'yatak', w: '150', d: '200', h: '105' },
-        { dosya: 'yatak3.jpeg', kategori: 'yatak', w: '160', d: '200', h: '115' },
-        { dosya: 'yatak4.jpeg', kategori: 'yatak', w: '200', d: '200', h: '125' },
-        { dosya: 'yatak5.jpeg', kategori: 'yatak', w: '140', d: '190', h: '100' },
-        { dosya: 'yatak6.jpeg', kategori: 'yatak', w: '180', d: '200', h: '110' },
-        { dosya: 'yatak7.jpeg', kategori: 'yatak', w: '160', d: '200', h: '120' }
+          
+        { dosya: 'dolap.jpeg', kategori: 'dolap', w: '200', d: '60', h: '210',
+          baslikTR: 'Çok Amaçlı Dolap', baslikEN: 'Multi-Purpose Wardrobe',
+          aciklamaTR: 'Geniş iç hacmi ve çok sayıda rafıyla eşyalarınızı düzenli tutmanızı sağlayan fonksiyonel dolap.',
+          aciklamaEN: 'Functional wardrobe that allows you to keep your belongings organized with its large interior volume and numerous shelves.' },
+          
+        { dosya: 'dolap1.jpeg', kategori: 'dolap', w: '160', d: '50', h: '50',
+          baslikTR: 'Çok Amaçlı Kitaplık ve Dolap', baslikEN: 'Multi-Purpose Bookshelf and Cabinet',
+          aciklamaTR: 'Modern tasarımıyla hem kitaplık hem de kapalı depolama alanı olarak kullanabileceğiniz çok amaçlı dekoratif ünite.',
+          aciklamaEN: 'Multi-purpose decorative unit that you can use both as a bookshelf and closed storage area with its modern design.' },
+          
+        { dosya: 'dolap2.jpeg', kategori: 'dolap', w: '220', d: '65', h: '220',
+          baslikTR: 'İki Kapaklı Çekmeceli Dolap', baslikEN: 'Two-Door Cabinet with Drawers',
+          aciklamaTR: 'Evinizin her köşesinde kullanabileceğiniz, çekmece ve dolap detaylarıyla pratik saklama alanı sunan dolap takımı.',
+          aciklamaEN: 'Cabinet set that you can use in every corner of your home, offering practical storage space with drawer and cabinet details.' },
+          
+        { dosya: 'dolap3.jpeg', kategori: 'dolap', w: '150', d: '50', h: '190',
+          baslikTR: 'Modern TV Ünitesi', baslikEN: 'Modern TV Unit',
+          aciklamaTR: 'Özel dekoratif panelleri ve LED aydınlatma efektiyle salonunuza şıklık katan geniş TV ünitesi.',
+          aciklamaEN: 'Wide TV unit that adds elegance to your living room with its custom decorative panels and LED lighting effect.' },
+          
+        { dosya: 'yatak.jpeg', kategori: 'yatak', w: '100', d: '200', h: '110',
+          baslikTR: 'Soft Başlıklı Baza Yatak', baslikEN: 'Single Bed with Soft Headboard',
+          aciklamaTR: '100x200 ölçüsünde baza. Çelik profil, MDF içerik. Soft başlık. Kuş tüyü sünger, extra omurga destek süngeri. Sertlik derecesi 6.',
+          aciklamaEN: '100x200 base. Steel profile, MDF content. Soft headboard. Down sponge, extra spine support sponge. Firmness degree 6.' },
+          
+        { dosya: 'yatak1.jpeg', kategori: 'yatak', w: '150', d: '200', h: '120',
+          baslikTR: 'Paris Yatak Modeli', baslikEN: 'Paris Bed Model',
+          aciklamaTR: '150x200 Paris yatak modeli. Çelik profil, MDF içerik baza. İşlemeli kapitone başlık detayı. 29-31 cm yükseklik, sertlik derecesi 7, extra comfort süngeri.',
+          aciklamaEN: '150x200 Paris bed model. Steel profile, MDF content base. Embroidered quilted headboard detail. 29-31 cm height, firmness degree 7, extra comfort sponge.' },
+          
+        { dosya: 'yatak2.jpeg', kategori: 'yatak', w: '160', d: '200', h: '105',
+          baslikTR: 'Ortopedik Tek Kişilik Yatak', baslikEN: 'Orthopedic Single Bed',
+          aciklamaTR: 'Tam ortopedik yay sistemi ile omurga sağlığınızı koruyan tek kişilik yatak.',
+          aciklamaEN: 'Single bed that protects your spine health with a full orthopedic spring system.' },
+          
+        { dosya: 'yatak3.jpeg', kategori: 'yatak', w: '160', d: '200', h: '115',
+          baslikTR: 'Relax Yatak Modeli', baslikEN: 'Relax Bed Model',
+          aciklamaTR: 'Terletmeyen özel kumaş teknolojisi ve ekstra konfor katmanıyla kesintisiz uyku.',
+          aciklamaEN: 'Uninterrupted sleep with non-sweating custom fabric technology and extra comfort layer.' },
+          
+        { dosya: 'yatak4.jpeg', kategori: 'yatak', w: '200', d: '200', h: '125',
+          baslikTR: 'King Size Lüks Yatak', baslikEN: 'King Size Luxury Bed',
+          aciklamaTR: 'Ultra geniş uyku alanı sunan, lüks otel konforunu evinize getiren özel tasarım yatak.',
+          aciklamaEN: 'Custom-designed bed bringing luxury hotel comfort to your home, offering ultra-wide sleeping space.' },
+          
+        { dosya: 'yatak5.jpeg', kategori: 'yatak', w: '140', d: '190', h: '100',
+          baslikTR: 'Kompakt Baza Seti', baslikEN: 'Compact Base Set',
+          aciklamaTR: 'Dar alanlar için tasarlanmış geniş iç hacimli, amortisörlü güvenli baza sistemi.',
+          aciklamaEN: 'Spacious interior, safe shock-absorber base system designed for narrow spaces.' },
+          
+        { dosya: 'yatak6.jpeg', kategori: 'yatak', w: '180', d: '200', h: '110',
+          baslikTR: 'Doğa Dostu Bambu Yatak', baslikEN: 'Eco-Friendly Bamboo Bed',
+          aciklamaTR: 'Doğal bambu ipliklerinden dokunmuş yüzeyi ile nefes alan sağlıklı yatak.',
+          aciklamaEN: 'Healthy breathing bed with surface woven from natural bamboo threads.' },
+          
+        { dosya: 'yatak7.jpeg', kategori: 'yatak', w: '160', d: '200', h: '120',
+          baslikTR: 'Diamond Premium Yatak', baslikEN: 'Diamond Premium Bed',
+          aciklamaTR: 'Paket yay sistemi sayesinde eşlerin dönüşlerinden etkilenmeyen premium konfor.',
+          aciklamaEN: 'Premium comfort unaffected by partner movements thanks to the pocket spring system.' }
     ];
     
     // Resimleri JS objelerine dönüştürerek detaylandırma
     const urunler = resimListesi.map((uye, indeks) => {
-        let kategoriSecimi = uye.kategori;
-        
-        let kategoriIsmiTR = kategoriSecimi === 'koltuklar' ? 'Oturma Odası Grubu' : 
-                             kategoriSecimi === 'perde' ? 'Perde & Halı' : 
-                             kategoriSecimi === 'dolap' ? 'Şık Mobilya' : 
-                             kategoriSecimi === 'yemek-masasi' ? 'Yemek Masası Takımı' : 'Konfor Yatak';
-                             
-        let kategoriIsmiEN = kategoriSecimi === 'koltuklar' ? 'Living Room Set' : 
-                             kategoriSecimi === 'perde' ? 'Curtain & Carpet' : 
-                             kategoriSecimi === 'dolap' ? 'Elegant Furniture' : 
-                             kategoriSecimi === 'yemek-masasi' ? 'Dining Table Set' : 'Comfort Bed';
-
-        let varsayilanAciklamaTR = `Evinizin dekorasyonuna uyum sağlayacak birinci sınıf malzemelerden üretilmiş ${kategoriIsmiTR.toLowerCase()} tasarımı. İhtiyacınıza göre özel ölçülerde üretilebilir.`;
-        let varsayilanAciklamaEN = `Premium ${kategoriIsmiEN.toLowerCase()} design crafted from top-quality materials to match your home decoration. Can be custom-sized according to your needs.`;
-
         return {
             id: indeks,
             resimYolu: `fotograflar/${uye.dosya}`,
-            kategori: kategoriSecimi,
-            baslikTR: uye.baslikTR || (uye.dosya.includes('hali') && !uye.ozel ? 'Özel Dokuma Halı' : `Örnek ${kategoriIsmiTR}`),
-            baslikEN: uye.baslikEN || (uye.dosya.includes('hali') && !uye.ozel ? 'Custom Woven Carpet' : `Sample ${kategoriIsmiEN}`),
-            aciklamaTR: uye.aciklamaTR || varsayilanAciklamaTR,
-            aciklamaEN: uye.aciklamaEN || varsayilanAciklamaEN,
-            w: uye.w || 'Özel',
-            d: uye.d || 'Özel',
-            h: uye.h || 'Özel'
+            kategori: uye.kategori,
+            baslikTR: uye.baslikTR,
+            baslikEN: uye.baslikEN,
+            aciklamaTR: uye.aciklamaTR,
+            aciklamaEN: uye.aciklamaEN,
+            w: uye.w || '-',
+            d: uye.d || '-',
+            h: uye.h || '-'
         };
     });
 
@@ -132,10 +225,10 @@ document.addEventListener('DOMContentLoaded', () => {
                         data-dim-d="${urun.d}"
                         data-dim-h="${urun.h}">
                         
-                        ${urun.kategori === 'perde' ? `<span class="position-absolute top-0 end-0 m-3 badge bg-secondary-gold text-dark py-2 px-3 fs-7 tracking-wider z-2 rounded-2 shadow-sm" data-i18n="badge_curtain">CLASS PERDE & HALI</span>` : ''}
+                        ${urun.kategori === 'perde' ? `<span class="position-absolute top-0 end-0 m-3 badge bg-secondary-gold text-dark py-2 px-3 fs-7 tracking-wider z-2 rounded-2 shadow-sm" data-i18n="badge_curtain">CLASS PERDE <span style="font-family: Arial, sans-serif;">&amp;</span> HALI</span>` : ''}
                         
                         <div class="card-img-wrapper overflow-hidden ratio ratio-4x3">
-                            <img src="${urun.resimYolu}" alt="${urun.baslikTR}" class="card-img-top object-fit-cover" loading="lazy">
+                            <img src="${urun.resimYolu}" alt="${urun.baslikTR}" class="card-img-top object-fit-cover" width="600" height="450" loading="lazy">
                         </div>
                         <div class="card-body d-flex flex-column p-4">
                             <h3 class="card-title h4 font-display fw-bold mb-3 text-primary-dark urun-baslik">${urun.baslikTR}</h3>
@@ -265,17 +358,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     const lW = aktifDil === 'en' ? 'W' : 'G';
                     const lD = aktifDil === 'en' ? 'D' : 'D';
                     const lH = aktifDil === 'en' ? 'H' : 'Y';
-                    const warningTR = "Bu tasarım belirtilen ölçülerde stokta olup, isteğinize göre alanınıza en uygun özel ölçülerde de tasarlanabilmektedir.";
-                    const warningEN = "This design is in stock with the specified dimensions and can also be custom designed to best fit your space upon request.";
-                    const warning = aktifDil === 'en' ? warningEN : warningTR;
-                    
                     modalBoyutlar.innerHTML = `
-                        <div class="d-flex flex-wrap gap-4 mb-2 fs-5 fw-semibold text-primary-dark">
+                        <div class="d-flex flex-wrap gap-2 gap-md-4 mb-2 fs-6 fw-semibold text-primary-dark">
                             <span>${lW}: ${w === '-' ? '-' : w + ' cm'}</span>
                             <span>${lD}: ${d === '-' ? '-' : d + ' cm'}</span>
                             <span>${lH}: ${h === '-' ? '-' : h + ' cm'}</span>
                         </div>
-                        <p class="mb-0 fs-7">${warning}</p>
                     `;
                 }
 
@@ -303,7 +391,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const dilSozlugu = {
         "tr": {
             "skip_link": "Ana içeriğe atla",
-            "nav_home": "Anasayfa",
+            "nav_home": "Ana Sayfa",
             "nav_about": "Hakkımızda",
             "nav_products": "Ürünler",
             "nav_contact": "İletişim",
