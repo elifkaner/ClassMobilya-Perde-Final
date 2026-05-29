@@ -102,9 +102,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    /* =========================================
-       1. Tema Ayarları (Karanlık / Aydınlık Mod)
-       ========================================= */
     const temaButonu = document.getElementById('tema-degistirici');
     const kokElement = document.documentElement;
     const KAYIT_ANAHTARI = 'classmobilya-tema-v2';
@@ -127,15 +124,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (olay) => {
-    //     if (!localStorage.getItem(KAYIT_ANAHTARI)) {
-    //         kokElement.setAttribute('data-theme', olay.matches ? 'dark' : 'light');
-    //     }
-    // });
-
-    /* =========================================
-       2. Menü Kaydırma Efekti (Header Scroll)
-       ========================================= */
     const ustMenu = document.querySelector('.header');
     
     window.addEventListener('scroll', () => {
@@ -146,9 +134,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    /* =========================================
-       3. Dinamik Ürün Listesi ve Kategorizasyon
-       ========================================= */
     const urunIzgarasi = document.getElementById('urun-grid');
     const resimListesi = [
         { dosya: 'oturma-odasi-4.jpeg', kategori: 'koltuklar', w: '240', d: '95', h: '85',
@@ -182,9 +167,9 @@ document.addEventListener('DOMContentLoaded', () => {
           aciklamaEN: 'MDF table, 38 profile legs. Chairs with MDF inner material. Table dimensions 80x130 cm.' },
           
         { dosya: 'yemek-masasi-1.jpeg', kategori: 'yemek-masasi', w: '90', d: '90', h: '75',
-          baslikTR: 'Ekonomik Yuvarlak Masa', baslikEN: 'Economic Round Table',
-          aciklamaTR: '90x90 ekonomik masa modeli. Suntalem malzeme, zarif sandalye detaylı.',
-          aciklamaEN: '90x90 economic round table model. Chipboard material, elegant chair details.' },
+          baslikTR: 'Mermer Desenli Yuvarlak Masa', baslikEN: 'Marble Pattern Round Table',
+          aciklamaTR: '90x90 mermer desenli zarif masa modeli. Şık ve konforlu sandalyeleriyle mekanınıza değer katar.',
+          aciklamaEN: '90x90 elegant marble pattern table model. Adds value to your space with stylish and comfortable chairs.' },
           
         { dosya: 'yemek-masasi-2.jpeg', kategori: 'yemek-masasi', w: '90', d: '90', h: '76',
           baslikTR: 'Yuvarlak Yemek Masası', baslikEN: 'Round Dining Table',
@@ -217,9 +202,9 @@ document.addEventListener('DOMContentLoaded', () => {
           aciklamaEN: 'Finely woven tulle adding an authentic atmosphere with wooden rustic details.' },
           
         { dosya: 'perde4.jpeg', kategori: 'perde', w: '200', d: '-', h: '250',
-          baslikTR: 'Kadife Karartma Fon', baslikEN: 'Velvet Blackout Drape',
-          aciklamaTR: 'Işığı tamamen kesen, yatak odaları için ideal premium kadife karartma perde.',
-          aciklamaEN: 'Premium velvet blackout curtain that completely blocks light, ideal for bedrooms.' },
+          baslikTR: 'Özel Dokulu Klasik Fon Perde', baslikEN: 'Custom Textured Classic Drape',
+          aciklamaTR: 'Zarif deseni ve şık kordon (braçol) aksesuarlarıyla salonunuza klasik bir hava katan dokulu tasarım perde.',
+          aciklamaEN: 'Textured design curtain adding a classic atmosphere to your living room with its elegant pattern and stylish tie-back accessories.' },
           
         { dosya: 'hali.jpeg', kategori: 'perde', w: '160', d: '-', h: '230', ozel: true,
           baslikTR: 'Zengin Halı Çeşitleri', baslikEN: 'Rich Carpet Varieties',
@@ -247,9 +232,9 @@ document.addEventListener('DOMContentLoaded', () => {
           aciklamaEN: 'Cabinet set that you can use in every corner of your home, offering practical storage space with drawer and cabinet details.' },
           
         { dosya: 'dolap3.jpeg', kategori: 'dolap', w: '180', d: '45', h: '55',
-          baslikTR: 'Modern TV Ünitesi', baslikEN: 'Modern TV Unit',
-          aciklamaTR: 'Özel dekoratif panelleri ve LED aydınlatma efektiyle salonunuza şıklık katan geniş TV ünitesi.',
-          aciklamaEN: 'Wide TV unit that adds elegance to your living room with its custom decorative panels and LED lighting effect.' },
+          baslikTR: 'Şömine Ambiyanslı TV Ünitesi', baslikEN: 'TV Unit with Fireplace Ambiance',
+          aciklamaTR: 'Cam panel üzerine yansıtılan özel aydınlatmalı şömine dekoru ile salonunuza sıcak ve şık bir atmosfer katan modern tasarım ünite.',
+          aciklamaEN: 'Modern design unit that adds a warm and elegant atmosphere to your living room with a specially illuminated fireplace decor on a glass panel.' },
           
         { dosya: 'yatak.jpeg', kategori: 'yatak', w: '100', d: '200', h: '110',
           baslikTR: 'Soft Başlıklı Baza Yatak', baslikEN: 'Single Bed with Soft Headboard',
@@ -292,7 +277,6 @@ document.addEventListener('DOMContentLoaded', () => {
           aciklamaEN: 'Premium single comfort that perfectly adapts to the body structure, distributing weight evenly thanks to the pocket spring system.' }
     ];
     
-    // Resimleri JS objelerine dönüştürerek detaylandırma
     const urunler = resimListesi.map((uye, indeks) => {
         return {
             id: indeks,
@@ -308,13 +292,11 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     });
 
-    // Ürünleri HTML'e basma fonksiyonu
     function urunleriEkranaBas() {
-        if(!urunIzgarasi) return; // Ana sayfada çalışmaz, sadece urunler.html'de çalışır
-        urunIzgarasi.innerHTML = ''; // Temizle
+        if(!urunIzgarasi) return;
+        urunIzgarasi.innerHTML = '';
         
         urunler.forEach((urun, indeks) => {
-            // Asimetrik şekiller sırayla değişsin
             const asimetrikClass = (indeks % 2 === 0) ? 'shape-asymmetric' : 'shape-asymmetric-alt';
             
             const urunHTML = `
@@ -332,7 +314,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         ${urun.kategori === 'perde' ? `<span class="position-absolute top-0 end-0 m-3 badge bg-secondary-gold text-dark py-2 px-3 fs-7 tracking-wider z-2 rounded-2 shadow-sm" data-i18n="badge_curtain">CLASS PERDE <span style="font-family: Arial, sans-serif;">&amp;</span> HALI</span>` : ''}
                         
                         <div class="card-img-wrapper overflow-hidden ratio ratio-4x3">
-                            <img src="${urun.resimYolu}" alt="${urun.baslikTR}" class="card-img-top object-fit-cover" width="600" height="450" loading="lazy">
+                            <img src="${urun.resimYolu}" alt="${urun.baslikTR}" class="card-img-top object-fit-cover" width="600" height="450" ${indeks < 6 ? 'loading="eager"' : 'loading="lazy"'}>
                         </div>
                         <div class="card-body d-flex flex-column p-4">
                             <h3 class="card-title h4 font-display fw-bold mb-3 text-primary-dark urun-baslik">${urun.baslikTR}</h3>
@@ -348,15 +330,11 @@ document.addEventListener('DOMContentLoaded', () => {
             urunIzgarasi.insertAdjacentHTML('beforeend', urunHTML);
         });
 
-        // Ürünler eklendikten sonra modal tıklamalarını aktifleştir
         modalIslemleriniAyarla();
     }
 
     urunleriEkranaBas();
 
-    /* =========================================
-       4. Ürün Filtreleme İşlemleri
-       ========================================= */
     const filtreButonlari = document.querySelectorAll('.filter-btn');
     
     window.kategoriSec = function(kategoriDegeri) {
@@ -385,7 +363,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
             
-            // Kategori notunu güncelle
             const kategoriNotu = document.getElementById('category-note');
             const kategoriNotuContainer = document.getElementById('category-note-container');
             
@@ -400,7 +377,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Sayfa açıldığında URL'de kategori parametresi varsa otomatik filtrele
     const urlParametreleri = new URLSearchParams(window.location.search);
     const gelenKategori = urlParametreleri.get('kategori');
     if(gelenKategori && filtreButonlari.length > 0) {
@@ -409,9 +385,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 100);
     }
 
-    /* =========================================
-       5. Scroll Reveal (Aşağı Kaydırdıkça Gösterme)
-       ========================================= */
     let gorselGozlemci;
     function GozlemciyiTetikle() {
         const gosterilecekElemanlar = document.querySelectorAll('.reveal');
@@ -432,9 +405,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     GozlemciyiTetikle();
 
-    /* =========================================
-       6. Tam Ekran Modal (Fullscreen Modal)
-       ========================================= */
     function modalIslemleriniAyarla() {
         const urunKartlari = document.querySelectorAll('.product-card');
         const modalGorsel = document.getElementById('modal-gorsel');
@@ -500,24 +470,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    /* =========================================
-       7. Dinamik Footer Yılı
-       ========================================= */
     const yilElemani = document.getElementById('yil');
     if (yilElemani) yilElemani.textContent = new Date().getFullYear();
-
-    /* =========================================
-       8. Çoklu Dil (TR / EN) Sistemi
-       ========================================= */
-    /* =========================================
-       8. Çoklu Dil (TR / EN) Sistemi
-       ========================================= */
 
     const dilButonu = document.getElementById('dil-degistirici');
     
     function dilUygula(dilKodu) {
         secilenDil = dilKodu;
         localStorage.setItem('classmobilya-lang', dilKodu);
+        document.documentElement.lang = dilKodu;
         
         if(dilButonu) {
             dilButonu.textContent = dilKodu === 'tr' ? 'EN' : 'TR';

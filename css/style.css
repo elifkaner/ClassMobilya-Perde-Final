@@ -1,11 +1,9 @@
-/* =========================================
-   CSS Sıfırlama & Kök Değişkenler (Root Variables)
-   ========================================= */
+
 :root {
-    /* Renk Paleti - Aydınlık Tema */
+    
     --renk-ana-koyu: #0a0a0a;
-    --renk-ikincil-altin: #a37910; /* Accessibility (A11y) uyumlu daha koyu altın */
-    --renk-arkaplan: #faf9f6; /* Kırık Beyaz (Off-white) */
+    --renk-ikincil-altin: #a37910; 
+    --renk-arkaplan: #faf9f6; 
     --renk-arkaplan-alt: #f0ede6;
     --renk-kart-arkaplan: #ffffff;
     --renk-metin: #222222;
@@ -14,18 +12,15 @@
     --renk-girdi-arkaplan: #f5f3f0;
     --renk-footer: #0a0a0a;
     --renk-acik-altin: rgba(212, 175, 55, 0.08);
-    
-    /* Tipografi */
+
     --font-ana: 'Outfit', sans-serif;
     --font-baslik: 'Montserrat', sans-serif;
-    
-    /* Animasyon Geçişleri */
+
     --gecis-hizli: 0.25s ease-in-out;
     --gecis-normal: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     --gecis-yavas: 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* Karanlık Tema Renk Paleti */
 [data-theme="dark"] {
     --renk-ana-koyu: #ffffff;
     --renk-ikincil-altin: #e6c25a; 
@@ -40,9 +35,6 @@
     --renk-acik-altin: rgba(230, 194, 90, 0.08);
 }
 
-/* =========================================
-   Özgün Custom Scrollbar
-   ========================================= */
 @media (min-width: 992px) {
     ::-webkit-scrollbar {
         width: 8px;
@@ -86,9 +78,6 @@ body {
     padding: 0;
 }
 
-/* =========================================
-   Tipografi & Yardımcı Sınıflar (Utility)
-   ========================================= */
 .font-display {
     font-family: var(--font-baslik) !important;
 }
@@ -112,7 +101,6 @@ body {
     -webkit-text-fill-color: transparent;
 }
 
-/* Animasyonlu Alt Çizgi (Divider) */
 .animated-line {
     width: 0;
     height: 3px;
@@ -125,7 +113,6 @@ body {
     width: 80px;
 }
 
-/* Özgün Şekiller (Asymmetric) */
 .shape-asymmetric {
     border-radius: 60px 0 60px 0 !important;
 }
@@ -196,9 +183,6 @@ body {
     color: var(--renk-metin) !important;
 }
 
-/* =========================================
-   Header & Navigation (Opaque)
-   ========================================= */
 .glass-header {
     background-color: var(--renk-arkaplan);
     border-bottom: 1px solid var(--renk-kenarlik);
@@ -223,7 +207,6 @@ body {
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
 }
 
-/* Özel Navbar Toggler (Mobil Menü İkonu) */
 .custom-navbar .navbar-toggler {
     border-color: var(--renk-kenarlik);
 }
@@ -289,7 +272,6 @@ body {
     width: 100%;
 }
 
-/* Dropdown Hover Özelliği */
 @media (min-width: 992px) {
     .dropdown-hover:hover > .dropdown-menu {
         display: block;
@@ -315,9 +297,6 @@ body {
 [data-theme="dark"] .sun-icon { display: none; }
 [data-theme="dark"] .moon-icon { display: block; }
 
-/* =========================================
-   Butonlar (Buttons) & Glow Effects
-   ========================================= */
 .btn-premium {
     background-color: var(--renk-ana-koyu);
     color: var(--renk-arkaplan);
@@ -369,9 +348,6 @@ body {
     color: var(--renk-ikincil-altin) !important;
 }
 
-/* =========================================
-   Hero Bölümü (Parallax & Vignette)
-   ========================================= */
 .hero {
     min-height: 100vh;
     padding-top: 80px;
@@ -399,9 +375,6 @@ body {
     transform: translateY(50px);
 }
 
-/* =========================================
-   Hakkımızda & Resim Efektleri
-   ========================================= */
 .premium-border {
     position: relative;
     z-index: 1;
@@ -432,9 +405,6 @@ body {
     transform: scale(1.08) rotate(1deg);
 }
 
-/* =========================================
-   Kategori/Ürün Kartları (Hover Float)
-   ========================================= */
 .filter-btn {
     border: 1px solid var(--renk-kenarlik);
     color: var(--renk-metin);
@@ -473,9 +443,6 @@ body {
     transform: scale(1.1);
 }
 
-/* =========================================
-   Animasyonlar
-   ========================================= */
 @keyframes slideUpFade {
     0% {
         opacity: 0;
@@ -509,7 +476,6 @@ body {
     transform: translateY(0) scale(1);
 }
 
-/* Fullscreen Modal Özelleştirmeleri */
 .modal-fullscreen .modal-content {
     min-height: 100vh;
 }
@@ -536,7 +502,6 @@ body {
     background-color: var(--renk-ikincil-altin);
 }
 
-/* Form Elemanları Karanlık Tema Düzenlemesi */
 [data-theme="dark"] .bg-input,
 [data-theme="dark"] .form-label {
     color: #ffffff !important;
