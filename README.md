@@ -43,8 +43,3 @@ https://elifkaner.github.io/ClassMobilya-Perde-Final/
 ### Ürünler ve Modal Penceresi Görünümü
 ![Ürünler ve Modal Penceresi Görünümü](ekran-goruntuleri/urun-detay.png)
 
-### Lighthouse Performans Skoru (Masaüstü & Mobil)
-
-![Lighthouse Masaüstü](ekran-goruntuleri/skor-masaustu.png)
-
-![Lighthouse Mobil](ekran-goruntuleri/skor-mobil.png)
