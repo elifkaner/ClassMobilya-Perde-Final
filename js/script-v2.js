@@ -187,7 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
           aciklamaEN: 'Specially designed luxury tulle curtain adding elegance to your home.' },
           
         { dosya: 'perde1.jpeg', kategori: 'perde', w: '250', d: '-', h: '260',
-          baslikTR: 'Keten Fon Perde', baslikEN: 'Linen Drape Curtain',
+          baslikTR: 'Pano Fon Perde', baslikEN: 'Panel Drape Curtain',
           aciklamaTR: 'Güneş ışığını nazikçe süzen, kırışmaz keten dokulu şık fon perde.',
           aciklamaEN: 'Stylish linen drape curtain that gently filters sunlight and is wrinkle-resistant.' },
           
