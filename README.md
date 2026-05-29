@@ -22,7 +22,7 @@ Bu proje, bir üniversite final ödevi kapsamında geliştirilmiş olan gerçek 
 
 ## Canlı Site Bağlantısı
 Site GitHub Pages üzerinden canlıya alınmıştır. (HTTPS / SSL Sertifikalı)
-[SİTE LİNKİNİZİ BURAYA EKLEYİNİZ]
+https://elifkaner.github.io/ClassMobilya-Perde-Final/
 
 ## Öne Çıkan Özellikler (Final Kriterleri)
 1. **Responsive & Semantik:** Tamamen mobil uyumlu ve anlamsal kodlama.
@@ -33,7 +33,16 @@ Site GitHub Pages üzerinden canlıya alınmıştır. (HTTPS / SSL Sertifikalı)
 6. **Form ve Etkileşim:** Formspree ile çalışan iletişim formu, modal popup ve sayfa içi animasyonlar.
 
 ## Ekran Görüntüleri
-*(Github'a yüklemeden önce ekran görüntülerini ekleyebilirsiniz)*
-- Ana Sayfa Görünümü
-- Karanlık Mod Görünümü
-- Ürünler ve Modal Penceresi Görünümü
+
+### Ana Sayfa Görünümü
+![Ana Sayfa Görünümü](ekran-goruntuleri/anasayfa.png)
+
+### Karanlık Mod Görünümü
+![Karanlık Mod Görünümü](ekran-goruntuleri/karanlik-mod.png)
+
+### Ürünler ve Modal Penceresi Görünümü
+![Ürünler ve Modal Penceresi Görünümü](ekran-goruntuleri/urun-detay.png)
+
+### Lighthouse Performans Skoru (Masaüstü & Mobil)
+![Lighthouse Masaüstü](ekran-goruntuleri/skor-masaustu.png)
+![Lighthouse Mobil](ekran-goruntuleri/skor-mobil.png)
