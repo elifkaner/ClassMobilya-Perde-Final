@@ -201,11 +201,7 @@ document.addEventListener('DOMContentLoaded', () => {
           aciklamaTR: 'Ahşap rustik detaylarıyla otantik bir hava katan ince dokuma tül.',
           aciklamaEN: 'Finely woven tulle adding an authentic atmosphere with wooden rustic details.' },
           
-        { dosya: 'perde4.jpeg', kategori: 'perde', w: '200', d: '-', h: '250',
-          baslikTR: 'Özel Dokulu Klasik Fon Perde', baslikEN: 'Custom Textured Classic Drape',
-          aciklamaTR: 'Zarif deseni ve şık kordon (braçol) aksesuarlarıyla salonunuza klasik bir hava katan dokulu tasarım perde.',
-          aciklamaEN: 'Textured design curtain adding a classic atmosphere to your living room with its elegant pattern and stylish tie-back accessories.' },
-          
+
         { dosya: 'hali.jpeg', kategori: 'perde', w: '160', d: '-', h: '230', ozel: true,
           baslikTR: 'Zengin Halı Çeşitleri', baslikEN: 'Rich Carpet Varieties',
           aciklamaTR: 'Mağazamızda her tarza ve bütçeye uygun yüzlerce farklı halı seçeneği sizleri bekliyor. Klasikten moderne tüm renk ve desenler mevcut.',
