@@ -11,7 +11,7 @@ Bu proje, bir üniversite final ödevi kapsamında geliştirilmiş olan gerçek 
 - **HTML5:** Semantik etiketler (`header`, `nav`, `main`, `section`, `footer`) ile tamamen erişilebilir (WCAG AA) bir yapı kuruldu.
 - **CSS3 & Bootstrap 5:** Flexbox ve Grid sistemleri kullanılarak %100 responsive (Mobil, Tablet, Masaüstü) bir yerleşim sağlandı. Asimetrik şekiller (asymmetric border-radius), altın renk geçişleri (gradients) ve kaydırma efektleri ile "özgün ve ilginç" bir lüks tasarımı uygulandı.
 - **JavaScript (ES6):** Vanilla JS kullanılarak Karanlık Mod (Dark Mode), Çoklu Dil (TR/EN) geçişi, Dinamik Ürün Filtreleme, Scroll Reveal (aşağı kaydırdıkça belirme) efektleri ve tam ekran Modal pencereleri kodlandı. Bütün değişken adları tamamen Türkçe kullanıldı.
-- **Araçlar:** OpenCode ve AntiGravity, Google Analytics (ziyaretçi takibi için) ve Formspree (çalışan iletişim formu için).
+- **Araçlar:** OpenCode ve Google Antigravity, Google Analytics (ziyaretçi takibi için) ve Formspree (çalışan iletişim formu için).
 
 ## Klasör Yapısı
 - `css/` : CSS stil dosyalarını (style.css) barındırır.
