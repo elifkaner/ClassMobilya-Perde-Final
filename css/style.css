@@ -522,3 +522,19 @@ body {
 [data-theme="dark"] .bg-input::placeholder {
     color: rgba(255, 255, 255, 0.5) !important;
 }
+
+[data-theme="dark"] .dropdown-menu {
+    background-color: var(--renk-kart-arkaplan);
+    border: 1px solid var(--renk-kenarlik) !important;
+}
+
+[data-theme="dark"] .dropdown-item {
+    color: var(--renk-metin);
+    transition: background-color var(--gecis-hizli), color var(--gecis-hizli);
+}
+
+[data-theme="dark"] .dropdown-item:hover,
+[data-theme="dark"] .dropdown-item:focus {
+    background-color: var(--renk-arkaplan-alt);
+    color: var(--renk-ikincil-altin);
+}
