@@ -310,7 +310,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         ${urun.kategori === 'perde' ? `<span class="position-absolute top-0 end-0 m-3 badge bg-secondary-gold text-dark py-2 px-3 fs-7 tracking-wider z-2 rounded-2 shadow-sm" data-i18n="badge_curtain">CLASS PERDE <span style="font-family: Arial, sans-serif;">&amp;</span> HALI</span>` : ''}
                         
                         <div class="card-img-wrapper overflow-hidden ratio ratio-4x3">
-                            <img src="${urun.resimYolu}" alt="${urun.baslikTR}" class="card-img-top object-fit-cover" width="600" height="450" ${indeks < 6 ? 'loading="eager"' : 'loading="lazy"'}>
+                            <img src="${urun.resimYolu}" alt="${urun.baslikTR}" class="card-img-top object-fit-cover" width="600" height="450" ${indeks < 6 ? 'loading="eager" decoding="sync"' : 'loading="lazy" decoding="async"'}>
                         </div>
                         <div class="card-body d-flex flex-column p-4">
                             <h3 class="card-title h4 font-display fw-bold mb-3 text-primary-dark urun-baslik">${urun.baslikTR}</h3>
