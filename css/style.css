@@ -523,6 +523,18 @@ body {
     color: rgba(255, 255, 255, 0.5) !important;
 }
 
+.dropdown-item.active, 
+.dropdown-item:active {
+    background-color: transparent !important;
+    color: var(--renk-ikincil-altin) !important;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+    background-color: transparent !important;
+    color: var(--renk-ikincil-altin) !important;
+}
+
 [data-theme="dark"] .dropdown-menu {
     background-color: var(--renk-kart-arkaplan);
     border: 1px solid var(--renk-kenarlik) !important;
@@ -534,7 +546,9 @@ body {
 }
 
 [data-theme="dark"] .dropdown-item:hover,
-[data-theme="dark"] .dropdown-item:focus {
-    background-color: var(--renk-arkaplan-alt);
-    color: var(--renk-ikincil-altin);
+[data-theme="dark"] .dropdown-item:focus,
+[data-theme="dark"] .dropdown-item.active, 
+[data-theme="dark"] .dropdown-item:active {
+    background-color: transparent !important;
+    color: var(--renk-ikincil-altin) !important;
 }
