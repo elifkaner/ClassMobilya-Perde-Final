@@ -49,7 +49,11 @@ document.addEventListener('DOMContentLoaded', () => {
             "price_yemek_masasi": "8.000 TL'den başlayan fiyatlarla...",
             "price_dolap": "11.000 TL'den başlayan fiyatlarla...",
             "price_perde": "Ölçüye göre fiyatlandırılmaktadır.",
-            "price_yatak": "İstenilen ölçünün çeşitlerine göre fiyatlandırılmaktadır."
+            "price_yatak": "İstenilen ölçünün çeşitlerine göre fiyatlandırılmaktadır.",
+            "alert_name_empty": "Lütfen adınızı giriniz.",
+            "alert_email_empty": "Lütfen e-posta adresinizi giriniz.",
+            "alert_email_invalid": "Lütfen geçerli bir e-posta adresi giriniz.",
+            "alert_msg_empty": "Lütfen mesajınızı giriniz."
         },
         "en": {
             "skip_link": "Skip to main content",
@@ -98,7 +102,11 @@ document.addEventListener('DOMContentLoaded', () => {
             "price_yemek_masasi": "Prices starting from 8,000 TL...",
             "price_dolap": "Prices starting from 11,000 TL...",
             "price_perde": "Pricing varies by custom dimensions.",
-            "price_yatak": "Pricing varies by requested dimension types."
+            "price_yatak": "Pricing varies by requested dimension types.",
+            "alert_name_empty": "Please enter your name.",
+            "alert_email_empty": "Please enter your email address.",
+            "alert_email_invalid": "Please enter a valid email address.",
+            "alert_msg_empty": "Please enter your message."
         }
     };
 
@@ -520,4 +528,43 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     dilUygula(secilenDil);
+
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const messageInput = document.getElementById('message');
+            
+            const currentLang = localStorage.getItem('classmobilya-lang') || 'tr';
+            const dict = dilSozlugu[currentLang];
+            
+            if (!nameInput.value.trim()) {
+                e.preventDefault();
+                alert(dict['alert_name_empty']);
+                return;
+            }
+            
+            const emailValue = emailInput.value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            if (!emailValue) {
+                e.preventDefault();
+                alert(dict['alert_email_empty']);
+                return;
+            }
+            
+            if (!emailRegex.test(emailValue)) {
+                e.preventDefault();
+                alert(dict['alert_email_invalid']);
+                return;
+            }
+            
+            if (messageInput && !messageInput.value.trim()) {
+                e.preventDefault();
+                alert(dict['alert_msg_empty']);
+                return;
+            }
+        });
+    }
 });
