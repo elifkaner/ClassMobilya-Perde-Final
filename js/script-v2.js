@@ -532,38 +532,56 @@ document.addEventListener('DOMContentLoaded', () => {
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // Varsayılan gönderimi durdur
+            
             const nameInput = document.getElementById('name');
             const emailInput = document.getElementById('email');
             const messageInput = document.getElementById('message');
             
+            const nameError = document.getElementById('nameError');
+            const emailError = document.getElementById('emailError');
+            const msgError = document.getElementById('msgError');
+            
             const currentLang = localStorage.getItem('classmobilya-lang') || 'tr';
             const dict = dilSozlugu[currentLang];
             
+            let hasError = false;
+            
+            // Hataları temizle
+            nameInput.classList.remove('is-invalid');
+            emailInput.classList.remove('is-invalid');
+            if (messageInput) messageInput.classList.remove('is-invalid');
+            
+            // İsim kontrolü
             if (!nameInput.value.trim()) {
-                e.preventDefault();
-                alert(dict['alert_name_empty']);
-                return;
+                hasError = true;
+                nameInput.classList.add('is-invalid');
+                if(nameError) nameError.textContent = dict['alert_name_empty'] || "Lütfen adınızı giriniz.";
             }
             
+            // E-posta kontrolü
             const emailValue = emailInput.value.trim();
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             
             if (!emailValue) {
-                e.preventDefault();
-                alert(dict['alert_email_empty']);
-                return;
+                hasError = true;
+                emailInput.classList.add('is-invalid');
+                if(emailError) emailError.textContent = dict['alert_email_empty'] || "Lütfen e-posta adresinizi giriniz.";
+            } else if (!emailRegex.test(emailValue)) {
+                hasError = true;
+                emailInput.classList.add('is-invalid');
+                if(emailError) emailError.textContent = dict['alert_email_invalid'] || "Lütfen geçerli bir e-posta adresi giriniz.";
             }
             
-            if (!emailRegex.test(emailValue)) {
-                e.preventDefault();
-                alert(dict['alert_email_invalid']);
-                return;
-            }
-            
+            // Mesaj kontrolü
             if (messageInput && !messageInput.value.trim()) {
-                e.preventDefault();
-                alert(dict['alert_msg_empty']);
-                return;
+                hasError = true;
+                messageInput.classList.add('is-invalid');
+                if(msgError) msgError.textContent = dict['alert_msg_empty'] || "Lütfen mesajınızı giriniz.";
+            }
+            
+            if (!hasError) {
+                contactForm.submit(); // Hata yoksa formu gönder
             }
         });
     }

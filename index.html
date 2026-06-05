@@ -255,15 +255,18 @@
                                 <input type="hidden" name="_next" value="https://elifkaner.github.io/ClassMobilya-Perde-Final/">
                                 <div class="mb-4">
                                     <label for="name" class="form-label fw-semibold" data-i18n="form_name_label">Adınız Soyadınız</label>
-                                    <input type="text" class="form-control form-control-lg bg-input border-0 shadow-none" id="name" name="name" required placeholder="Adınız Soyadınız" data-i18n-ph="form_name_ph">
+                                    <input type="text" class="form-control form-control-lg bg-input shadow-none" id="name" name="name" required placeholder="Adınız Soyadınız" data-i18n-ph="form_name_ph">
+                                    <div class="invalid-feedback fw-medium" id="nameError"></div>
                                 </div>
                                 <div class="mb-4">
                                     <label for="email" class="form-label fw-semibold" data-i18n="form_email_label">E-posta Adresiniz</label>
-                                    <input type="email" class="form-control form-control-lg bg-input border-0 shadow-none" id="email" name="email" required placeholder="ornek@mail.com" data-i18n-ph="form_email_ph">
+                                    <input type="email" class="form-control form-control-lg bg-input shadow-none" id="email" name="email" required placeholder="ornek@mail.com" data-i18n-ph="form_email_ph">
+                                    <div class="invalid-feedback fw-medium" id="emailError"></div>
                                 </div>
                                 <div class="mb-4">
                                     <label for="message" class="form-label fw-semibold" data-i18n="form_msg_label">Mesajınız</label>
-                                    <textarea class="form-control form-control-lg bg-input border-0 shadow-none" id="message" name="message" rows="5" required placeholder="Size nasıl yardımcı olabiliriz?" data-i18n-ph="form_msg_ph"></textarea>
+                                    <textarea class="form-control form-control-lg bg-input shadow-none" id="message" name="message" rows="5" required placeholder="Size nasıl yardımcı olabiliriz?" data-i18n-ph="form_msg_ph"></textarea>
+                                    <div class="invalid-feedback fw-medium" id="msgError"></div>
                                 </div>
                                 <button type="submit" class="btn btn-premium btn-lg w-100 rounded-3 shadow-sm text-uppercase" data-i18n="form_submit">Gönder</button>
                             </form>
@@ -294,6 +297,6 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
-    <script src="js/script-v2.js?v=21" defer></script>
+    <script src="js/script-v2.js?v=22" defer></script>
 </body>
 </html>
